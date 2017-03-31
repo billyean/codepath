@@ -32,7 +32,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
     
     var networkConnected: Bool = true
     
-//    var sortWay:String = "now_playing" // 0 means now playing, which is default, 1 means top rate
+    var sortWay:String = "now_playing" // 0 means now playing, which is default, 1 means top rate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,9 +116,20 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         if let imageUriStr = movie?["poster_path"] as? String {
             let imageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
 
-            if let imageUrl = URL(string: imageUrlStr) {
-                cell?.movieImage.setImageWith(imageUrl)
-            }
+            let imageRequest = URLRequest(url: URL(string: imageUrlStr)!)
+            cell?.movieImage.setImageWith(imageRequest, placeholderImage: nil, success: { (imageRequest, response, image) in
+                if response != nil {
+                    cell?.movieImage.alpha = 0.0
+                    cell?.movieImage.image = image
+                    UIView.animate(withDuration: 1.0, animations: {() -> Void in
+                        cell?.movieImage.alpha = 1.0
+                    })
+                } else {
+                    cell?.movieImage.image = image
+                }
+            }, failure: { (imageRequest, response, error) in
+                print(error)
+            })
         }
         
         cell?.sizeToFit()
