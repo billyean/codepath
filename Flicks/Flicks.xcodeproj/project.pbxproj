@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		822B9CBB1E8B885300481422 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822B9CBA1E8B885300481422 /* MovieTableViewCell.swift */; };
+		825C02171E8E0B1B00DD0D7A /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 825C02161E8E0B1B00DD0D7A /* alert.png */; };
+		82C27F4F1E8CD8BD00DBF816 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C27F4E1E8CD8BD00DBF816 /* MovieDetailViewController.swift */; };
 		82E951951E8C86CE0092EA5F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 82E951941E8C86CE0092EA5F /* Podfile */; };
 		82FB5F331E8ABE8E00E87C40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB5F321E8ABE8E00E87C40 /* AppDelegate.swift */; };
 		82FB5F351E8ABE8E00E87C40 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB5F341E8ABE8E00E87C40 /* NowPlayingViewController.swift */; };
@@ -48,7 +50,9 @@
 		407CD79B82F843CA69E5D2AE /* Pods-Flicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.release.xcconfig"; sourceTree = "<group>"; };
 		5B7597D7AB6169B758117F72 /* Pods_FlicksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlicksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		822B9CBA1E8B885300481422 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
-		82E951941E8C86CE0092EA5F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		825C02161E8E0B1B00DD0D7A /* alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert.png; sourceTree = "<group>"; };
+		82C27F4E1E8CD8BD00DBF816 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		82E951941E8C86CE0092EA5F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		82FB5F2F1E8ABE8E00E87C40 /* Flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB5F321E8ABE8E00E87C40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82FB5F341E8ABE8E00E87C40 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 			children = (
 				82FB5F341E8ABE8E00E87C40 /* NowPlayingViewController.swift */,
 				82FB5F361E8ABE8E00E87C40 /* TopRatedViewController.swift */,
+				82C27F4E1E8CD8BD00DBF816 /* MovieDetailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 		82FB5F311E8ABE8E00E87C40 /* Flicks */ = {
 			isa = PBXGroup;
 			children = (
+				825C02161E8E0B1B00DD0D7A /* alert.png */,
 				822B9CBD1E8B8A2B00481422 /* ViewController */,
 				822B9CBC1E8B89EF00481422 /* Views */,
 				82FB5F661E8AD54F00E87C40 /* nowplaying.png */,
@@ -316,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E951951E8C86CE0092EA5F /* Podfile in Resources */,
+				825C02171E8E0B1B00DD0D7A /* alert.png in Resources */,
 				82FB5F3F1E8ABE8E00E87C40 /* LaunchScreen.storyboard in Resources */,
 				82FB5F681E8AD54F00E87C40 /* nowplaying.png in Resources */,
 				82FB5F3C1E8ABE8E00E87C40 /* Assets.xcassets in Resources */,
@@ -484,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82FB5F371E8ABE8E00E87C40 /* TopRatedViewController.swift in Sources */,
+				82C27F4F1E8CD8BD00DBF816 /* MovieDetailViewController.swift in Sources */,
 				82FB5F331E8ABE8E00E87C40 /* AppDelegate.swift in Sources */,
 				822B9CBB1E8B885300481422 /* MovieTableViewCell.swift in Sources */,
 				82FB5F351E8ABE8E00E87C40 /* NowPlayingViewController.swift in Sources */,
