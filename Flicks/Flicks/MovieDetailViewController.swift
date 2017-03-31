@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class MovieDetailViewController: UIViewController {
     
@@ -21,15 +22,22 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var popularity: UILabel!
     
     @IBOutlet weak var time: UILabel!
-    
-    @IBOutlet weak var overview: UITextView!
+
+    @IBOutlet weak var overview: UILabel!
     
     @IBOutlet weak var contextView: UIView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let api_key = "0a870c2e3daf46a8b6099e99cb0ed595"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let contentWidth = scrollView.bounds.width
+        let contentHeight = contextView.bounds.height
+        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
+        scrollView.addSubview(contextView)
 
         // Do any additional setup after loading the view.
         if let imageUriStr = movie?["poster_path"] as? String {
@@ -50,6 +58,7 @@ class MovieDetailViewController: UIViewController {
         releaseDate.text = dateFormatter.string(from: date!)
 
         overview.text = movie?["overview"] as! String
+        overview.sizeToFit()
         
         let popularityVal = movie?["popularity"] as! Double
         
@@ -78,9 +87,9 @@ class MovieDetailViewController: UIViewController {
             }
         });
         task.resume()
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(MovieDetailViewController.swiped(_:)))
-        swipeUp.direction = .up
-        self.contextView.addGestureRecognizer(swipeUp)
+        //let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(MovieDetailViewController.swiped(_:)))
+        //swipeUp.direction = .up
+        //self.contextView.addGestureRecognizer(swipeUp)
     }
 
     override func didReceiveMemoryWarning() {

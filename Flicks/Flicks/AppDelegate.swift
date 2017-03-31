@@ -13,11 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
+        window = UIWindow(frame: UIScreen.main.bounds)
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vcNowPlaying = storyboard.instantiateInitialViewController() as? FlicksNavigationController
+        vcNowPlaying?.tabBarItem.title = "Now Playing"
+        vcNowPlaying?.tabBarItem.image = UIImage(named: "nowplaying.png")
+        vcNowPlaying?.type = "now_playing"
+        
+        let vcTopRated = storyboard.instantiateInitialViewController() as? FlicksNavigationController
+        vcTopRated?.tabBarItem.title = "Top Rated"
+        vcTopRated?.tabBarItem.image = UIImage(named: "toprated.png")
+        vcTopRated?.type = "top_rated"
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [vcNowPlaying!, vcTopRated!]
+        
+        // Make the Tab Bar Controller the root view controller
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
         return true
     }
 

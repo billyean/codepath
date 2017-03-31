@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  Flicks
 //
 //  Created by Yan, Tristan on 3/28/17.
@@ -10,13 +10,16 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class TopRatedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var movieSearchBar: UISearchBar!
     
     @IBOutlet weak var networkErrorView: UIView!
+    
+    @IBOutlet weak var alertImageView: UIImageView!
+    
+    @IBOutlet weak var networkErrorLabel: UILabel!
     
     let api_key = "0a870c2e3daf46a8b6099e99cb0ed595"
     
@@ -28,16 +31,23 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var networkConnected: Bool = true
     
+    var sortWay:String = "now_playing" // 0 means now playing, which is default, 1 means top rate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.dataSource = self
         tableView.delegate = self
         movieSearchBar.delegate = self
+
         // Do any additional setup after loading the view, typically from a nib.
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
         
         MBProgressHUD.showAdded(to: tableView, animated: true)
-        
-        let url = URL(string:"https://api.themoviedb.org/3/movie/top_rated?language=en-US&api_key=\(api_key)")
+        let url = URL(string:"https://api.themoviedb.org/3/movie/\(sortWay)?language=en-US&api_key=\(api_key)")
         let request = URLRequest(url: url!)
         let session = URLSession(
             configuration: URLSessionConfiguration.default,
@@ -55,6 +65,7 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
                 if let data = dataOrNil {
                     if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
                         self.movies = responseDictionary["results"] as? [NSDictionary]
+//                        sleep(10)
                         MBProgressHUD.hide(for: self.tableView, animated: true)
                         self.tableView.reloadData()
                     }
@@ -63,12 +74,18 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
         });
         task.resume()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (networkConnected) {
+            networkErrorView.isHidden = true
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searchActive) {
@@ -90,14 +107,14 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             movie = movies?[indexPath.row]
         }
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell
         cell?.titleLabel.text = movie?["title"] as? String
         cell?.content.text = movie?["overview"] as? String
         
         if let imageUriStr = movie?["poster_path"] as? String {
             let imageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
-            
+
             let imageRequest = URLRequest(url: URL(string: imageUrlStr)!)
             cell?.movieImage.setImageWith(imageRequest, placeholderImage: nil, success: { (imageRequest, response, image) in
                 if response != nil {
@@ -113,6 +130,10 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
                 print(error)
             })
         }
+        cell?.selectionStyle = .none
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.darkGray
+        cell?.selectedBackgroundView = backgroundView
         
         cell?.sizeToFit()
         
@@ -137,7 +158,7 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
         let target = segue.destination as? MovieDetailViewController
         let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
         let selected = self.movies?[(indexPath?.row)!]
@@ -147,7 +168,7 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         MBProgressHUD.showAdded(to: tableView, animated: true)
-        let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?language=en-US&api_key=\(api_key)")
+        let url = URL(string:"https://api.themoviedb.org/3/movie/\(sortWay)?language=en-US&api_key=\(api_key)")
         let request = URLRequest(url: url!)
         let session = URLSession(
             configuration: URLSessionConfiguration.default,
@@ -170,7 +191,7 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.networkConnected = true
                         self.networkErrorView.isHidden = true
                         self.tableView.reloadData()
-                        
+
                     }
                 }
             }
@@ -178,5 +199,7 @@ class TopRatedViewController: UIViewController, UITableViewDataSource, UITableVi
         });
         task.resume()
     }
+
+
 }
 
