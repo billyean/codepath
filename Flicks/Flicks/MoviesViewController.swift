@@ -158,12 +158,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         let target = segue.destination as? MovieDetailViewController
         let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
-        let selected = self.movies?[(indexPath?.row)!]
         
-        target?.movie = selected
+        if (searchActive) {
+            target?.movie = filteredMovies?[(indexPath?.row)!]
+        } else {
+            target?.movie = movies?[(indexPath?.row)!]
+        }
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
