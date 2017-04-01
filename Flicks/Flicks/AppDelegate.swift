@@ -23,11 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vcNowPlaying?.tabBarItem.title = "Now Playing"
         vcNowPlaying?.tabBarItem.image = UIImage(named: "nowplaying.png")
         vcNowPlaying?.type = "now_playing"
+        vcNowPlaying?.navigationItem.title = "Now Playing Movies"
         
         let vcTopRated = storyboard.instantiateInitialViewController() as? FlicksNavigationController
         vcTopRated?.tabBarItem.title = "Top Rated"
         vcTopRated?.tabBarItem.image = UIImage(named: "toprated.png")
         vcTopRated?.type = "top_rated"
+        vcTopRated?.navigationItem.title = "Top Rated Movies"
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [vcNowPlaying!, vcTopRated!]

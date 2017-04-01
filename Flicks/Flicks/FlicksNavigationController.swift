@@ -18,7 +18,7 @@ class FlicksNavigationController: UINavigationController {
         // Do any additional setup after loading the view.
         let moviewController = viewControllers[0] as? MoviesViewController
         moviewController?.sortWay = type!
-        
+        moviewController?.navigationItem.title = navigationItem.title
     }
 
     override func didReceiveMemoryWarning() {
