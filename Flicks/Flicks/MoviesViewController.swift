@@ -10,7 +10,7 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var movieSearchBar: UISearchBar!
@@ -21,6 +21,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var networkErrorLabel: UILabel!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var viewSegmentedController: UISegmentedControl!
+
     let api_key = "0a870c2e3daf46a8b6099e99cb0ed595"
     
     var movies: [NSDictionary]?
@@ -39,12 +43,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         movieSearchBar.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        if viewSegmentedController.selectedSegmentIndex == 0 {
+            tableView.isHidden = false
+            collectionView.isHidden = true
+        } else {
+            tableView.isHidden = true
+            collectionView.isHidden = false
+        }
+        viewSegmentedController.addTarget(self, action: #selector(segmentValueChangeAction(_:)), for: .valueChanged)
 
         // Do any additional setup after loading the view, typically from a nib.
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
-        tableView.insertSubview(refreshControl, at: 0)
+        let refreshControl1 = UIRefreshControl()
+        refreshControl1.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl1, at: 0)
         
+        let refreshControl2 = UIRefreshControl()
+        refreshControl2.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        collectionView.insertSubview(refreshControl2, at: 0)
         
         MBProgressHUD.showAdded(to: tableView, animated: true)
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(sortWay)?language=en-US&api_key=\(api_key)")
@@ -68,6 +86,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 //                        sleep(10)
                         MBProgressHUD.hide(for: self.tableView, animated: true)
                         self.tableView.reloadData()
+                        self.collectionView.reloadData()
                     }
                 }
             }
@@ -108,7 +127,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             movie = movies?[indexPath.row]
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableCell", for: indexPath) as? MovieTableViewCell
         cell?.titleLabel.text = movie?["title"] as? String
         cell?.content.text = movie?["overview"] as? String
         
@@ -155,11 +174,19 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             self.searchActive = true
         }
         self.tableView.reloadData()
+        self.collectionView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let target = segue.destination as? MovieDetailViewController
-        let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+        
+        var indexPath: IndexPath?
+        
+        if viewSegmentedController.selectedSegmentIndex == 0 {
+            indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+        } else {
+            indexPath = collectionView.indexPath(for: sender as! UICollectionViewCell)
+        }
         
         if (searchActive) {
             target?.movie = filteredMovies?[(indexPath?.row)!]
@@ -193,6 +220,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                         self.networkConnected = true
                         self.networkErrorView.isHidden = true
                         self.tableView.reloadData()
+                        self.collectionView.reloadData()
 
                     }
                 }
@@ -201,7 +229,65 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         });
         task.resume()
     }
+    
+    func segmentValueChangeAction(_ viewSegmentedController: UISegmentedControl) {
+        if viewSegmentedController.selectedSegmentIndex == 0 {
+            tableView.isHidden = false
+            collectionView.isHidden = true
+        } else {
+            tableView.isHidden = true
+            collectionView.isHidden = false
+        }
+    }
 
-
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(searchActive) {
+            return (filteredMovies?.count)!
+        } else {
+            if let movies = movies {
+                return movies.count
+            } else {
+                return 0
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionCell", for: indexPath) as? MovieCollectionViewCell
+        
+        var movie: NSDictionary?
+        
+        if (searchActive) {
+            movie = filteredMovies?[indexPath.row]
+        } else {
+            movie = movies?[indexPath.row]
+        }
+        
+        if let imageUriStr = movie?["poster_path"] as? String {
+            let imageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
+            
+            let imageRequest = URLRequest(url: URL(string: imageUrlStr)!)
+            cell?.movieImage.setImageWith(imageRequest, placeholderImage: nil, success: { (imageRequest, response, image) in
+                if response != nil {
+                    cell?.movieImage.alpha = 0.0
+                    cell?.movieImage.image = image
+                    UIView.animate(withDuration: 1.0, animations: {() -> Void in
+                        cell?.movieImage.alpha = 1.0
+                    })
+                } else {
+                    cell?.movieImage.image = image
+                }
+            }, failure: { (imageRequest, response, error) in
+                print(error)
+            })
+        }
+//        let backgroundView = UIView()
+//        backgroundView.backgroundColor = UIColor.darkGray
+//        cell?.selectedBackgroundView = backgroundView
+        
+        cell?.sizeToFit()
+        
+        return cell!
+    }
 }
 

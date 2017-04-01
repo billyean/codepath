@@ -59,10 +59,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="163" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="kU6-1O-BnK">
-                                <rect key="frame" x="0.0" y="121" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="151" width="375" height="516"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="159" id="8Oi-xo-bie" customClass="MovieTableViewCell" customModule="Flicks" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableCell" rowHeight="159" id="8Oi-xo-bie" customClass="MovieTableViewCell" customModule="Flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="375" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Oi-xo-bie" id="T5L-x1-ia7">
@@ -126,16 +126,55 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bM5-Ow-O0u">
+                                <rect key="frame" x="16" y="115" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="list.png"/>
+                                    <segment title="" image="grid.png"/>
+                                </segments>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IFj-wH-fpr">
+                                <rect key="frame" x="0.0" y="151" width="375" height="516"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="69x-3G-moC">
+                                    <size key="itemSize" width="118" height="102"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MovieCollectionCell" reuseIdentifier="MovieCollectionCell" id="8l9-Qm-7JY" customClass="MovieCollectionViewCell" customModule="Flicks" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-QH-fdq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="102"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="movieImage" destination="7oR-QH-fdq" id="P5l-6s-hqe"/>
+                                            <segue destination="2Mo-Ba-pNU" kind="show" id="9BP-OX-3NS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="69z-k4-uOT" firstAttribute="trailing" secondItem="8ZO-S0-pdk" secondAttribute="trailing" id="66T-k9-dxj"/>
                             <constraint firstItem="8ZO-S0-pdk" firstAttribute="trailing" secondItem="kU6-1O-BnK" secondAttribute="trailing" id="FYl-dM-sCd"/>
                             <constraint firstItem="8ZO-S0-pdk" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="5" id="Me6-SS-pja"/>
-                            <constraint firstItem="kU6-1O-BnK" firstAttribute="top" secondItem="69z-k4-uOT" secondAttribute="bottom" constant="16" id="Vx6-VQ-1Ua"/>
+                            <constraint firstItem="kU6-1O-BnK" firstAttribute="top" secondItem="69z-k4-uOT" secondAttribute="bottom" constant="46" id="Vx6-VQ-1Ua"/>
                             <constraint firstItem="69z-k4-uOT" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="3" id="WN0-FG-M9G"/>
                             <constraint firstAttribute="trailing" secondItem="69z-k4-uOT" secondAttribute="trailing" id="dXC-i5-KJ1"/>
-                            <constraint firstItem="kU6-1O-BnK" firstAttribute="top" secondItem="8ZO-S0-pdk" secondAttribute="bottom" constant="8" id="f1w-Bc-Os7"/>
+                            <constraint firstItem="kU6-1O-BnK" firstAttribute="top" secondItem="8ZO-S0-pdk" secondAttribute="bottom" constant="38" id="f1w-Bc-Os7"/>
                             <constraint firstItem="kU6-1O-BnK" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="hg5-Bz-WfR"/>
                             <constraint firstItem="8ZO-S0-pdk" firstAttribute="leading" secondItem="kU6-1O-BnK" secondAttribute="leading" id="jp6-eJ-UrZ"/>
                             <constraint firstItem="69z-k4-uOT" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="xNa-V7-zSd"/>
@@ -145,10 +184,12 @@
                     <navigationItem key="navigationItem" id="2lD-lY-VFK"/>
                     <connections>
                         <outlet property="alertImageView" destination="0Hf-P1-MgC" id="fBm-Qd-W5y"/>
+                        <outlet property="collectionView" destination="IFj-wH-fpr" id="ldO-DL-4hQ"/>
                         <outlet property="movieSearchBar" destination="8ZO-S0-pdk" id="nI3-Pk-sxt"/>
                         <outlet property="networkErrorLabel" destination="14f-l0-HWY" id="SOZ-tk-5Zy"/>
                         <outlet property="networkErrorView" destination="69z-k4-uOT" id="Q82-bf-qH6"/>
                         <outlet property="tableView" destination="kU6-1O-BnK" id="b9J-7L-nvS"/>
+                        <outlet property="viewSegmentedController" destination="bM5-Ow-O0u" id="8XK-hf-oWq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -312,6 +353,11 @@
     <resources>
         <image name="alert.png" width="24" height="24"/>
         <image name="clock.png" width="16" height="16"/>
+        <image name="grid.png" width="24" height="24"/>
+        <image name="list.png" width="24" height="24"/>
         <image name="popularity.png" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SwN-lB-IAm"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -1,6 +1,6 @@
-# Project 1 - Flickrs
+# Project 1 - Flicks
 
-Flickrs is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+Flicks is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 Time spent: 10 hours spent in total
 
@@ -17,7 +17,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [X] Add a tab bar for **Now Playing** and **Top Rated** movies.
-- [ ] Implement segmented control to switch between list view and grid view.
+- [X] Implement segmented control to switch between list view and grid view.
 - [X] Add a search bar.
 - [X] All images fade in.
 - [ ] For the large poster, load the low-res image first, switch to high-res when complete.
@@ -38,11 +38,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Time constraints not able to finish every features
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Tristan Yan]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
