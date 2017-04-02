@@ -48,6 +48,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        viewForSearchBar?.autoresizesSubviews = true
+        
         if viewSegmentedController.selectedSegmentIndex == 0 {
             tableView.isHidden = false
             collectionView.isHidden = true
@@ -177,18 +179,17 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.tableView.reloadData()
         self.collectionView.reloadData()
-        
-        if searchText.characters.count > 0 {
-            self.movieSearchBar.showsCancelButton = true
-            self.movieSearchBar.sizeToFit()
-            if viewForSearchBar == nil {
-                viewForSearchBar = UIView(frame: movieSearchBar.bounds)
-                self.movieSearchBar.addSubview(viewForSearchBar!)
-            }
-        } else {
-            self.movieSearchBar.showsCancelButton = false
-            self.movieSearchBar.sizeToFit()
-        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.movieSearchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchActive = false
+        searchBar.resignFirstResponder()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
