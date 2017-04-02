@@ -37,6 +37,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     var sortWay:String = "now_playing" // 0 means now playing, which is default, 1 means top rate
     
+    var viewForSearchBar: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -175,6 +177,18 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.tableView.reloadData()
         self.collectionView.reloadData()
+        
+        if searchText.characters.count > 0 {
+            self.movieSearchBar.showsCancelButton = true
+            self.movieSearchBar.sizeToFit()
+            if viewForSearchBar == nil {
+                viewForSearchBar = UIView(frame: movieSearchBar.bounds)
+                self.movieSearchBar.addSubview(viewForSearchBar!)
+            }
+        } else {
+            self.movieSearchBar.showsCancelButton = false
+            self.movieSearchBar.sizeToFit()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -221,7 +235,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                         self.networkErrorView.isHidden = true
                         self.tableView.reloadData()
                         self.collectionView.reloadData()
-
                     }
                 }
             }
