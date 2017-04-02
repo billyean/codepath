@@ -41,11 +41,27 @@ class MovieDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         if let imageUriStr = movie?["poster_path"] as? String {
-            let imageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
+            let highResolutionImageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
+            let lowResolutionImageUrlStr = "https://image.tmdb.org/t/p/w45\(imageUriStr)"
             
-            if let imageUrl = URL(string: imageUrlStr) {
-                movieImageView.setImageWith(imageUrl)
-            }
+            let highResolutionImageRequest = URLRequest(url: URL(string: highResolutionImageUrlStr)!)
+            let lowResolutionImageRequest = URLRequest(url: URL(string: lowResolutionImageUrlStr)!)
+            
+            movieImageView.setImageWith(lowResolutionImageRequest,placeholderImage: nil,
+                success: { (lowResolutionImageRequest, lowResolutionResponse, lowResolutionImage) in
+                    self.movieImageView.alpha = 0.0
+                    self.movieImageView.image = lowResolutionImage
+                    UIView.animate(withDuration: 0.3, animations: {() -> Void in
+                        self.movieImageView.alpha = 1.0
+                    }, completion: {(success) -> Void in
+                        self.movieImageView.setImageWith(highResolutionImageRequest, placeholderImage: nil,
+                            success: { (highResolutionImageRequest, highResolutionResponse, highResolutionImage) in
+                                self.movieImageView.image = highResolutionImage
+                            })
+                        })
+                }, failure: { (request, response, error) in
+                print(error)
+            })
         }
         
         movieTitle.text = movie?["original_title"] as! String
