@@ -136,20 +136,29 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         cell?.content.text = movie?["overview"] as? String
         
         if let imageUriStr = movie?["poster_path"] as? String {
-            let imageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
+            let highResolutionImageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
+            let lowResolutionImageUrlStr = "https://image.tmdb.org/t/p/w45\(imageUriStr)"
 
-            let imageRequest = URLRequest(url: URL(string: imageUrlStr)!)
-            cell?.movieImage.setImageWith(imageRequest, placeholderImage: nil, success: { (imageRequest, response, image) in
-                if response != nil {
+            let highResolutionImageRequest = URLRequest(url: URL(string: highResolutionImageUrlStr)!)
+            let lowResolutionImageRequest = URLRequest(url: URL(string: lowResolutionImageUrlStr)!)
+            
+            cell?.movieImage.setImageWith(lowResolutionImageRequest,placeholderImage: nil,
+                            success: { (lowResolutionImageRequest, lowResolutionResponse, lowResolutionImage) in
+                if lowResolutionResponse != nil {
                     cell?.movieImage.alpha = 0.0
-                    cell?.movieImage.image = image
+                    cell?.movieImage.image = lowResolutionImage
                     UIView.animate(withDuration: 1.0, animations: {() -> Void in
                         cell?.movieImage.alpha = 1.0
+                    }, completion: {(success) -> Void in
+                        cell?.movieImage.setImageWith(highResolutionImageRequest, placeholderImage: nil,
+                                                      success: { (highResolutionImageRequest, highResolutionResponse, highResolutionImage) in
+                            cell?.movieImage.image = highResolutionImage
+                        })
                     })
                 } else {
-                    cell?.movieImage.image = image
+                    cell?.movieImage.image = lowResolutionImage
                 }
-            }, failure: { (imageRequest, response, error) in
+            }, failure: { (request, response, error) in
                 print(error)
             })
         }
@@ -162,6 +171,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell!
     }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredMovies = movies?.filter(){ (movie) -> Bool in
@@ -278,20 +288,29 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         if let imageUriStr = movie?["poster_path"] as? String {
-            let imageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
+            let highResolutionImageUrlStr = "https://image.tmdb.org/t/p/w500\(imageUriStr)"
+            let lowResolutionImageUrlStr = "https://image.tmdb.org/t/p/w45\(imageUriStr)"
             
-            let imageRequest = URLRequest(url: URL(string: imageUrlStr)!)
-            cell?.movieImage.setImageWith(imageRequest, placeholderImage: nil, success: { (imageRequest, response, image) in
-                if response != nil {
-                    cell?.movieImage.alpha = 0.0
-                    cell?.movieImage.image = image
-                    UIView.animate(withDuration: 1.0, animations: {() -> Void in
-                        cell?.movieImage.alpha = 1.0
-                    })
-                } else {
-                    cell?.movieImage.image = image
-                }
-            }, failure: { (imageRequest, response, error) in
+            let highResolutionImageRequest = URLRequest(url: URL(string: highResolutionImageUrlStr)!)
+            let lowResolutionImageRequest = URLRequest(url: URL(string: lowResolutionImageUrlStr)!)
+            
+            cell?.movieImage.setImageWith(lowResolutionImageRequest,placeholderImage: nil,
+                                          success: { (lowResolutionImageRequest, lowResolutionResponse, lowResolutionImage) in
+                                            if lowResolutionResponse != nil {
+                                                cell?.movieImage.alpha = 0.0
+                                                cell?.movieImage.image = lowResolutionImage
+                                                UIView.animate(withDuration: 1.0, animations: {() -> Void in
+                                                    cell?.movieImage.alpha = 1.0
+                                                }, completion: {(success) -> Void in
+                                                    cell?.movieImage.setImageWith(highResolutionImageRequest, placeholderImage: nil,
+                                                                                  success: { (highResolutionImageRequest, highResolutionResponse, highResolutionImage) in
+                                                                                    cell?.movieImage.image = highResolutionImage
+                                                    })
+                                                })
+                                            } else {
+                                                cell?.movieImage.image = lowResolutionImage
+                                            }
+            }, failure: { (request, response, error) in
                 print(error)
             })
         }
