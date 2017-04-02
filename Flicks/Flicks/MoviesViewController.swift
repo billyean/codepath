@@ -144,20 +144,18 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             
             cell?.movieImage.setImageWith(lowResolutionImageRequest,placeholderImage: nil,
                             success: { (lowResolutionImageRequest, lowResolutionResponse, lowResolutionImage) in
-                if lowResolutionResponse != nil {
                     cell?.movieImage.alpha = 0.0
                     cell?.movieImage.image = lowResolutionImage
+                    print("Set low resolution images")
                     UIView.animate(withDuration: 1.0, animations: {() -> Void in
                         cell?.movieImage.alpha = 1.0
                     }, completion: {(success) -> Void in
                         cell?.movieImage.setImageWith(highResolutionImageRequest, placeholderImage: nil,
                                                       success: { (highResolutionImageRequest, highResolutionResponse, highResolutionImage) in
+                            print("Set high resolution images")
                             cell?.movieImage.image = highResolutionImage
                         })
                     })
-                } else {
-                    cell?.movieImage.image = lowResolutionImage
-                }
             }, failure: { (request, response, error) in
                 print(error)
             })
@@ -181,7 +179,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             }
             return true
         }
-        
         if (filteredMovies?.count == 0) {
             self.searchActive = false
         } else {
@@ -195,10 +192,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.movieSearchBar.showsCancelButton = true
     }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.movieSearchBar.showsCancelButton = false
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("call searchBarCancelButtonClicked")
         searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchActive = false
         searchBar.resignFirstResponder()
     }
     
@@ -295,28 +295,21 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             let lowResolutionImageRequest = URLRequest(url: URL(string: lowResolutionImageUrlStr)!)
             
             cell?.movieImage.setImageWith(lowResolutionImageRequest,placeholderImage: nil,
-                                          success: { (lowResolutionImageRequest, lowResolutionResponse, lowResolutionImage) in
-                                            if lowResolutionResponse != nil {
-                                                cell?.movieImage.alpha = 0.0
-                                                cell?.movieImage.image = lowResolutionImage
-                                                UIView.animate(withDuration: 1.0, animations: {() -> Void in
-                                                    cell?.movieImage.alpha = 1.0
-                                                }, completion: {(success) -> Void in
-                                                    cell?.movieImage.setImageWith(highResolutionImageRequest, placeholderImage: nil,
-                                                                                  success: { (highResolutionImageRequest, highResolutionResponse, highResolutionImage) in
-                                                                                    cell?.movieImage.image = highResolutionImage
-                                                    })
-                                                })
-                                            } else {
-                                                cell?.movieImage.image = lowResolutionImage
-                                            }
+                    success: { (lowResolutionImageRequest, lowResolutionResponse, lowResolutionImage) in
+                        cell?.movieImage.alpha = 0.0
+                        cell?.movieImage.image = lowResolutionImage
+                        UIView.animate(withDuration: 1.0, animations: {() -> Void in
+                            cell?.movieImage.alpha = 1.0
+                        }, completion: {(success) -> Void in
+                            cell?.movieImage.setImageWith(highResolutionImageRequest, placeholderImage: nil,
+                                                          success: { (highResolutionImageRequest, highResolutionResponse, highResolutionImage) in
+                                                            cell?.movieImage.image = highResolutionImage
+                            })
+                        })
             }, failure: { (request, response, error) in
                 print(error)
             })
         }
-//        let backgroundView = UIView()
-//        backgroundView.backgroundColor = UIColor.darkGray
-//        cell?.selectedBackgroundView = backgroundView
         
         cell?.sizeToFit()
         
