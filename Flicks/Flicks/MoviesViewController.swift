@@ -147,7 +147,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     cell?.movieImage.alpha = 0.0
                     cell?.movieImage.image = lowResolutionImage
                     print("Set low resolution images")
-                    UIView.animate(withDuration: 1.0, animations: {() -> Void in
+                    UIView.animate(withDuration: 0.1, animations: {() -> Void in
                         cell?.movieImage.alpha = 1.0
                     }, completion: {(success) -> Void in
                         cell?.movieImage.setImageWith(highResolutionImageRequest, placeholderImage: nil,
@@ -298,7 +298,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     success: { (lowResolutionImageRequest, lowResolutionResponse, lowResolutionImage) in
                         cell?.movieImage.alpha = 0.0
                         cell?.movieImage.image = lowResolutionImage
-                        UIView.animate(withDuration: 1.0, animations: {() -> Void in
+                        UIView.animate(withDuration: 0.1, animations: {() -> Void in
                             cell?.movieImage.alpha = 1.0
                         }, completion: {(success) -> Void in
                             cell?.movieImage.setImageWith(highResolutionImageRequest, placeholderImage: nil,
