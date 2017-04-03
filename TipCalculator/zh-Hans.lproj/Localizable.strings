@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TipCalculatorIphone
+
+  Created by Yan, Tristan on 3/6/17.
+  Copyright © 2017 Yan, Tristan. All rights reserved.
+*/
+"NewPercentageTitle" = "新增百分比";
+"NewPercentageMessage" = "新增百分比";
+"NewPercentagePlaceHolder" = "请输入一个新的百分比";
+"PercentagesSectionHeader" = "设定消费百分比";

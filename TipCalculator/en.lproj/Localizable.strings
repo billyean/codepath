@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TipCalculatorIphone
+
+  Created by Yan, Tristan on 3/6/17.
+  Copyright © 2017 Yan, Tristan. All rights reserved.
+*/
+"NewPercentageTitle" = "New Percentage";
+"NewPercentageMessage" = "New percentage";
+"NewPercentagePlaceHolder" = "Please input a new percentage";
+"PercentagesSectionHeader" = "Default Tip Percentage";

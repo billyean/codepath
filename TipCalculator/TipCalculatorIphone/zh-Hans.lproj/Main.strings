@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Tip:"; ObjectID = "2Tw-mq-xuj"; */
+"2Tw-mq-xuj.text" = "小费:";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "6tP-18-xwm"; */
+"6tP-18-xwm.title" = "设置";
+
+/* Class = "UILabel"; text = "$0.00"; ObjectID = "9tM-Qv-gLe"; */
+"9tM-Qv-gLe.text" = "$0.00";
+
+/* Class = "UILabel"; text = "$0.00"; ObjectID = "QRP-C4-2ea"; */
+"QRP-C4-2ea.text" = "$0.00";
+
+/* Class = "UILabel"; text = "Amount:"; ObjectID = "R5d-FQ-MK7"; */
+"R5d-FQ-MK7.text" = "消费金额:";
+
+/* Class = "UINavigationItem"; title = "Tip Calculator"; ObjectID = "a6o-Pl-Mg9"; */
+"a6o-Pl-Mg9.title" = "小费计算器";
+
+/* Class = "UILabel"; text = "Total:"; ObjectID = "hlX-MW-fja"; */
+"hlX-MW-fja.text" = "总额:";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "qhf-vo-wjD"; */
+"qhf-vo-wjD.title" = "设置";
+
+/* Class = "UISegmentedControl"; uR6-sh-ejo.segmentTitles[0] = "15%"; ObjectID = "uR6-sh-ejo"; */
+"uR6-sh-ejo.segmentTitles[0]" = "15%";
+
+/* Class = "UISegmentedControl"; uR6-sh-ejo.segmentTitles[1] = "18%"; ObjectID = "uR6-sh-ejo"; */
+"uR6-sh-ejo.segmentTitles[1]" = "18%";
+
+/* Class = "UISegmentedControl"; uR6-sh-ejo.segmentTitles[2] = "20%"; ObjectID = "uR6-sh-ejo"; */
+"uR6-sh-ejo.segmentTitles[2]" = "20%";
