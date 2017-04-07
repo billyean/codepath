@@ -21,14 +21,14 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .red
-        
         searchBar = UISearchBar()
         searchBar.placeholder = "Restaurants"
         searchBar.delegate = self
         
         restaurantTableView.dataSource = self
         restaurantTableView.delegate = self
+        
+        filters = Filters()
         
         // Add SearchBar to the NavigationBar
         searchBar.sizeToFit()
@@ -103,13 +103,12 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, UITableVi
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        searchSettings.searchString = searchBar.text
         searchBar.resignFirstResponder()
         doSearch(searchBar.text!)
     }
     
     func doSearch(_ searchText: String) {
-        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             if let businesses = businesses {
@@ -122,5 +121,12 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, UITableVi
             
         }
         )
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let targetController = segue.destination as! UINavigationController
+//        let targetViewController = targetController.topViewController as! FiltersViewController
+        let targetViewController = segue.destination as! FiltersViewController
+        targetViewController.filters = filters
     }
 }
