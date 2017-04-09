@@ -23,15 +23,21 @@ PODS:
   - BDBOAuth1Manager (1.6.0):
     - AFNetworking/NSURLConnection (~> 2.6.0)
     - AFNetworking/NSURLSession (~> 2.6.0)
+  - DXCustomCallout-ObjC (0.2.0)
+  - TTSwitch (0.0.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - BDBOAuth1Manager
+  - DXCustomCallout-ObjC (~> 0.2.0)
+  - TTSwitch (= 0.0.6)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BDBOAuth1Manager: cd5a5872f355ca38180d52ca2dd844f0b0c84797
+  DXCustomCallout-ObjC: fb223603ee148365de51c2d69bb10443943ff89b
+  TTSwitch: fef67a32dbd75e6981a3d27a7e954728e537de50
 
-PODFILE CHECKSUM: e93d023552e6cb9e3bc0b66e42e1d29f24efef97
+PODFILE CHECKSUM: 051d4a01c5e56ced02fe32590040b7e794735109
 
 COCOAPODS: 1.2.0

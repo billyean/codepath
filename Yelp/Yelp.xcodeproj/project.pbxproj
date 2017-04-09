@@ -27,6 +27,11 @@
 		82CD0FED1E97372000408E1B /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 82CD0FEB1E97372000408E1B /* unchecked.png */; };
 		82CD0FEF1E97394E00408E1B /* DropdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD0FEE1E97394E00408E1B /* DropdownTableViewCell.swift */; };
 		82CD0FF11E974B2F00408E1B /* MultipleSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD0FF01E974B2F00408E1B /* MultipleSelectionTableViewCell.swift */; };
+		82E0AFCF1E98581500E66862 /* BusinessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E0AFCE1E98581500E66862 /* BusinessPopView.xib */; };
+		82E0AFD11E985B8C00E66862 /* BusinessPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E0AFD01E985B8C00E66862 /* BusinessPopView.swift */; };
+		82E0AFD31E9889DF00E66862 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E0AFD21E9889DF00E66862 /* pin.png */; };
+		82E0AFD71E98B28B00E66862 /* YelpUISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E0AFD61E98B28B00E66862 /* YelpUISwitch.swift */; };
+		82E654BD1E98C62100228AF4 /* SingleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E654BC1E98C62100228AF4 /* SingleLabelCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +69,11 @@
 		82CD0FEB1E97372000408E1B /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		82CD0FEE1E97394E00408E1B /* DropdownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownTableViewCell.swift; sourceTree = "<group>"; };
 		82CD0FF01E974B2F00408E1B /* MultipleSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		82E0AFCE1E98581500E66862 /* BusinessPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessPopView.xib; sourceTree = "<group>"; };
+		82E0AFD01E985B8C00E66862 /* BusinessPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessPopView.swift; sourceTree = "<group>"; };
+		82E0AFD21E9889DF00E66862 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		82E0AFD61E98B28B00E66862 /* YelpUISwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpUISwitch.swift; sourceTree = "<group>"; };
+		82E654BC1E98C62100228AF4 /* SingleLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLabelCell.swift; sourceTree = "<group>"; };
 		883322706A784248B16F444A /* Pods-Yelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.release.xcconfig"; sourceTree = "<group>"; };
 		9B128C050DE78660DE2A8E75 /* Pods-YelpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpTests/Pods-YelpTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA3C5CF4FD317D72ABE2AAC4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +133,7 @@
 				222D8A5A19CCF9F900D2DB53 /* AppDelegate.swift */,
 				222D8A6119CCF9F900D2DB53 /* Images.xcassets */,
 				222D8A6319CCF9F900D2DB53 /* LaunchScreen.xib */,
+				82E0AFCE1E98581500E66862 /* BusinessPopView.xib */,
 				222D8A5819CCF9F900D2DB53 /* Supporting Files */,
 				8287483B1E960E9F00A0D6E7 /* Filters.swift */,
 			);
@@ -196,6 +207,9 @@
 				82CD0FE31E972BF900408E1B /* OnOrOffTableViewCell.swift */,
 				82CD0FEE1E97394E00408E1B /* DropdownTableViewCell.swift */,
 				82CD0FF01E974B2F00408E1B /* MultipleSelectionTableViewCell.swift */,
+				82E0AFD01E985B8C00E66862 /* BusinessPopView.swift */,
+				82E0AFD61E98B28B00E66862 /* YelpUISwitch.swift */,
+				82E654BC1E98C62100228AF4 /* SingleLabelCell.swift */,
 			);
 			name = UIComponent;
 			sourceTree = "<group>";
@@ -203,6 +217,7 @@
 		82CD0FE71E97323200408E1B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				82E0AFD21E9889DF00E66862 /* pin.png */,
 				82CD0FEA1E97372000408E1B /* checked.png */,
 				82CD0FEB1E97372000408E1B /* unchecked.png */,
 				82CD0FE81E97326100408E1B /* down.png */,
@@ -315,9 +330,11 @@
 			files = (
 				828748411E9621A300A0D6E7 /* Main.storyboard in Resources */,
 				82CD0FED1E97372000408E1B /* unchecked.png in Resources */,
+				82E0AFCF1E98581500E66862 /* BusinessPopView.xib in Resources */,
 				82CD0FE91E97326100408E1B /* down.png in Resources */,
 				8217CCBE1E97019800832D9F /* Yelp.png in Resources */,
 				82CD0FEC1E97372000408E1B /* checked.png in Resources */,
+				82E0AFD31E9889DF00E66862 /* pin.png in Resources */,
 				222D8A6519CCF9F900D2DB53 /* LaunchScreen.xib in Resources */,
 				222D8A6219CCF9F900D2DB53 /* Images.xcassets in Resources */,
 			);
@@ -433,13 +450,16 @@
 				22AAAA9C1AEA1EC300A544AF /* BusinessesViewController.swift in Sources */,
 				82CD0FE41E972BF900408E1B /* OnOrOffTableViewCell.swift in Sources */,
 				8287483C1E960E9F00A0D6E7 /* Filters.swift in Sources */,
+				82E654BD1E98C62100228AF4 /* SingleLabelCell.swift in Sources */,
 				82CD0FEF1E97394E00408E1B /* DropdownTableViewCell.swift in Sources */,
 				22AAAA991AEA0A9700A544AF /* Business.swift in Sources */,
 				222D8A7D19CCFAE000D2DB53 /* YelpClient.swift in Sources */,
 				82CD0FF11E974B2F00408E1B /* MultipleSelectionTableViewCell.swift in Sources */,
+				82E0AFD11E985B8C00E66862 /* BusinessPopView.swift in Sources */,
 				8287483F1E96171C00A0D6E7 /* RestaurantTableViewCell.swift in Sources */,
 				82CD0FE61E972CAA00408E1B /* FiltersViewController.swift in Sources */,
 				222D8A5B19CCF9F900D2DB53 /* AppDelegate.swift in Sources */,
+				82E0AFD71E98B28B00E66862 /* YelpUISwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

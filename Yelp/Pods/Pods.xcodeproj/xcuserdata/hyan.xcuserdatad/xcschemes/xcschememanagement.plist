@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DXCustomCallout-ObjC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Yelp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,9 +29,19 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TTSwitch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>03AEDD8E130B3335B37EE55371B9C304</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>083A3D71DADEBEE964C778419FD943D2</key>
 		<dict>
 			<key>primary</key>
@@ -37,12 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64FB435B065021D268F01693D6D75F6A</key>
+		<key>6D72BB1E287BBAECB2C7FEE5086E5D4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7BE727D93261EAB78C6AF9EF46ED1BFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6592CF922A7932BEB9BF4E6C8B2D1DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

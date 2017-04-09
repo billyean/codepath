@@ -1,0 +1,6 @@
+framework module DXCustomCallout_ObjC {
+  umbrella header "DXCustomCallout-ObjC-umbrella.h"
+
+  export *
+  module * { export * }
+}

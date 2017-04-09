@@ -9,18 +9,18 @@
 import Foundation
 
 class Filters {
-    let distancesArray = [["name" : "Auto", "value": "-1"],
+    let distancesArray: [[String: String]] = [["name" : "Auto", "value": "-1"],
                           ["name" : "0.3 miles", "value": "0.3"],
                           ["name" : "1 mile", "value": "1"],
                           ["name" : "5 miles", "value": "5"],
                           ["name" : "20 miles", "value": "20"]]
     
-    let sortByArray = [["name" : "Best Match", "value": "0"],
+    let sortByArray: [[String: String]] = [["name" : "Best Match", "value": "0"],
                        ["name" : "Distance", "value": "1"],
                        ["name" : "Rating", "value": "2"],
                        ["name" : "Most Reviewed", "value": "3"]]
     
-    let categories = [["name" : "Afghan", "code": "afghani", "selected": "false"],
+    let categories: [[String: String]] = [["name" : "Afghan", "code": "afghani", "selected": "false"],
                       ["name" : "African", "code": "african", "selected": "false"],
                       ["name" : "American, New", "code": "newamerican", "selected": "false"],
                       ["name" : "American, Traditional", "code": "tradamerican", "selected": "false"],
@@ -190,12 +190,45 @@ class Filters {
                       ["name" : "Wraps", "code": "wraps", "selected": "false"],
                       ["name" : "Yugoslav", "code": "yugoslav", "selected": "false"]]
     
-    var offeringADeal = [["name" : "Offering A Deal", "selected": "false"]]
+    var offeringADeal: [[String: String]] = [["name": "Offering A Deal", "selected": "false"]]
     
     var distances: Int = 0
     
     var sortBy: Int = 0
     
+    var sort: YelpSortMode? {
+        get {
+            switch sortBy {
+            case 0:
+                return YelpSortMode.bestMatched
+            case 1:
+                return YelpSortMode.distance
+            case 3:
+                return YelpSortMode.highestRated
+            default:
+                return nil
+
+            }
+        }
+    }
+    
+    var deal: Bool {
+        get {
+            return "true" == offeringADeal[0]["selected"]
+        }
+    }
+    
+    var radius: Double? {
+        get {
+            switch distances {
+            case 0:
+                return nil
+            default:
+                return Double(distancesArray[distances]["value"]!)! * 1000
+            }
+        }
+    }
+
     init() {
 
     }

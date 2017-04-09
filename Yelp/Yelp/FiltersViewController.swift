@@ -60,7 +60,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             if showAllCategories {
                 return filters.categories.count
             } else {
-                return 21
+                return 5
             }
         }
     }
@@ -112,6 +112,10 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return cell2
             }
         default:
+            if !showAllCategories && indexPath.row == 4 {
+                let singleLabelCell = filtersTableView.dequeueReusableCell(withIdentifier: "SingleLabelCell", for: indexPath) as! SingleLabelCell
+                return singleLabelCell
+            }
             let cell3 = filtersTableView.dequeueReusableCell(withIdentifier: "OnOrOffTableViewCell", for: indexPath) as! OnOrOffTableViewCell
             let row = filters.categories[indexPath.row]
             cell3.OnOrOffLabel.text = row["name"]
@@ -162,10 +166,16 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             sortByDropped = !sortByDropped
             filtersTableView.reloadData()
+        case 3:
+            if !showAllCategories && indexPath.row == 4 {
+                showAllCategories = true
+                filtersTableView.reloadData()
+            }
         default:
             print("Default")
         }
     }
+
 
     @IBAction func cancelSetting(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
@@ -179,7 +189,10 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
-    
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let targetViewController = segue.destination as! BusinessesViewController
+        targetViewController.filters = filters
+    }
 }
