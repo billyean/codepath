@@ -230,11 +230,11 @@ class Filters {
             case 0:
                 return nil
             default:
-                return Double(distancesArray[distances]["value"]!)! * 1000
+                return Double(distancesArray[distances]["value"]!)! * 1600
             }
         }
         set (newRadius) {
-            let km = Int(newRadius! / 100)
+            let km = Int(newRadius! / 160)
             switch km {
             case 3:
                 distances = 1

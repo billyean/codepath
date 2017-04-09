@@ -32,6 +32,10 @@ class BusinessesViewController: UIViewController {
     
     var categories: [String]?
     
+    var isMoreDataLoading = false
+    
+    var loadingMoreView: InfiniteScrollActivityView?
+    
     @IBOutlet weak var restaurantMapView: MKMapView!
     
     @IBOutlet weak var restaurantTableView: UITableView!
@@ -55,12 +59,22 @@ class BusinessesViewController: UIViewController {
         locationManager.distanceFilter = 10
         locationManager.requestWhenInUseAuthorization()
         currentLocation = locationManager.location
-        goToLocation(location: currentLocation!)
+        goToLocation()
         locationManager.startUpdatingLocation()
         
         // Add SearchBar to the NavigationBar
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
+        
+        // Initiate InfiniteScrollActivityView
+        let frame = CGRect(x: 0, y: restaurantTableView.contentSize.height, width: restaurantTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        restaurantTableView.addSubview(loadingMoreView!)
+        
+        var insets = restaurantTableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        restaurantTableView.contentInset = insets
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,20 +82,33 @@ class BusinessesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func doSearch(_ searchText: String) {
-        doSearch(searchText, sort: sort, categories: categories, deals: deals, radius: radius)
+    func doSearch(_ searchText: String, offset: Int = 0) {
+        doSearch(searchText, sort: sort, categories: categories, deals: deals, radius: radius, offset: offset)
     }
     
-    func doSearch(_ searchText: String, sort: YelpSortMode?, categories: [String]?, deals: Bool?, radius: Double?) {
+    func doSearch(_ searchText: String, sort: YelpSortMode?, categories: [String]?, deals: Bool?, radius: Double?, offset: Int = 0) {
+        loadingMoreView!.startAnimating()
         var coordinateStr: String?
         
         if let userCoordinate = currentLocation?.coordinate {
             coordinateStr = "\(userCoordinate.latitude),\(userCoordinate.longitude)"
         }
         
-        Business.searchWithTerm(term: searchText, sort: sort, categories: categories, deals: deals, radius: radius, coordinate:coordinateStr , completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchText, sort: sort, categories: categories, deals: deals, radius: radius, coordinate:coordinateStr, offset: offset, completion: { (businesses: [Business]?, error: Error?) -> Void in
+            // Update flag
+            self.isMoreDataLoading = false
             
-            self.businesses = businesses
+            // Stop the loading indicator
+            self.loadingMoreView!.stopAnimating()
+ 
+            if offset == 0 {
+                self.businesses = businesses
+            } else {
+                for business in businesses! {
+                    self.businesses.append(business)
+                }
+            }
+            
             if let businesses = businesses {
                 for business in businesses {
                     print(business.name!)
@@ -179,11 +206,19 @@ extension BusinessesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()
+        doSearch("")
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         doSearch(searchBar.text!)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == "" {
+            searchBar.resignFirstResponder()
+            doSearch("")
+        }
     }
 }
 
@@ -193,6 +228,11 @@ extension BusinessesViewController: FiltersChangedDelegate {
     func filtersChanged(changer: FiltersViewController, filtersDidChange filters: Filters?) {
         deals = filters?.deal
         radius = filters?.radius
+        
+        if radius != nil {
+            goToLocation()
+        }
+        
         categories = filters?.categories
         sort = filters?.sort
     }
@@ -248,9 +288,15 @@ extension BusinessesViewController: MKMapViewDelegate, CLLocationManagerDelegate
         }
     }
     
-    func goToLocation(location: CLLocation) {
-        let span = MKCoordinateSpanMake(0.02, 0.02)
-        let region = MKCoordinateRegionMake(location.coordinate, span)
+    func goToLocation() {
+        var span: MKCoordinateSpan?
+        if let radius = radius {
+           span = MKCoordinateSpanMake(radius / 1600 / 69.0, 0.1)
+        } else {
+           span = MKCoordinateSpanMake(1 / 69.0, 1 / 69.0)
+        }
+        
+        let region = MKCoordinateRegionMake((currentLocation?.coordinate)!, span!)
         restaurantMapView.setRegion(region, animated: false)
     }
     
@@ -261,7 +307,35 @@ extension BusinessesViewController: MKMapViewDelegate, CLLocationManagerDelegate
         if currentLocation == nil
             || eventDate.timeIntervalSinceNow.isLess(than: 15.0) && !(currentLocation?.distance(from: location).isLess(than: 50))! {
             currentLocation = location
-            goToLocation(location: location)
+            goToLocation()
         }
+    }
+}
+
+
+// Handle infinite scroll
+extension BusinessesViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = restaurantTableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - restaurantTableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && restaurantTableView.isDragging) {
+                isMoreDataLoading = true
+                
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRect(x: 0, y: restaurantTableView.contentSize.height, width: restaurantTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                
+                // Code to load more results
+                loadMoreData()
+            }
+        }
+    }
+    
+    func loadMoreData() {
+        doSearch(searchBar.text!, sort: sort, categories: categories, deals: deals, radius: radius, offset: businesses.count)
     }
 }

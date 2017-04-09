@@ -93,11 +93,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="British, Fish &amp; Chips, Seafood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jM-nh-xa7">
-                                                    <rect key="frame" x="100" y="60" width="245" height="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="British, Fish &amp; Chips, Seafood" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jM-nh-xa7">
+                                                    <rect key="frame" x="100" y="60" width="265" height="13"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="13" id="CeD-sd-Zc1"/>
-                                                        <constraint firstAttribute="width" constant="245" id="a6w-B8-RdD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -117,6 +116,7 @@
                                                 <constraint firstItem="haO-2M-tZA" firstAttribute="leading" secondItem="wLB-GG-u8W" secondAttribute="trailing" constant="8" id="S4P-sn-cGN"/>
                                                 <constraint firstItem="DOX-xV-3Ne" firstAttribute="centerY" secondItem="SNB-3J-2lL" secondAttribute="centerY" id="UrC-JD-X8N"/>
                                                 <constraint firstItem="haO-2M-tZA" firstAttribute="top" secondItem="DOX-xV-3Ne" secondAttribute="bottom" constant="4" id="ZHK-c7-snK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3jM-nh-xa7" secondAttribute="trailing" constant="2" id="brv-ET-pTs"/>
                                                 <constraint firstItem="sAb-Tz-2hC" firstAttribute="top" secondItem="jBc-zg-CF9" secondAttribute="top" constant="4" id="dER-gP-1d4"/>
                                                 <constraint firstItem="4Cg-Np-EAJ" firstAttribute="top" secondItem="jBc-zg-CF9" secondAttribute="top" constant="4" id="uNv-48-3nF"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="haO-2M-tZA" secondAttribute="trailing" constant="4" id="uxr-Iw-9gk"/>

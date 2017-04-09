@@ -12,7 +12,7 @@ protocol FiltersChangedDelegate: class {
     func filtersChanged(changer: FiltersViewController, filtersDidChange filters: Filters?)
 }
 
-class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FiltersViewController: UIViewController {
     weak var delegate: FiltersChangedDelegate?
 
     @IBOutlet weak var filtersTableView: UITableView!
@@ -32,7 +32,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         filtersTableView.dataSource = self
         filtersTableView.delegate = self
-
+        
         // Do any additional setup after loading the view.
         filtersTableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
     }
@@ -41,7 +41,30 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    /*
+    */
+    @IBAction func cancelSetting(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
     
+    @IBAction func doSearch(_ sender: Any) {
+        delegate?.filtersChanged(changer: self, filtersDidChange: filters)
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+// Handle table view
+extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
@@ -135,7 +158,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell3
         }
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = filtersTableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderViewIdentifier)!
         switch section {
@@ -183,29 +206,9 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("Default")
         }
     }
-
-
-    /*
-    */
-    @IBAction func cancelSetting(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    @IBAction func doSearch(_ sender: Any) {
-        delegate?.filtersChanged(changer: self, filtersDidChange: filters)
-        self.navigationController?.popToRootViewController(animated: true)
-    }
 }
 
+// Handle on/off switch
 extension FiltersViewController: SwitchBetweenOnAndOffDelegate {
     func onSwitch(cell: OnOrOffTableViewCell, changedValue value: Bool?) {
         let boolStr = String(describing: value!)
