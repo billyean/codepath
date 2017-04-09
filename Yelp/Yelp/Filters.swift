@@ -3,7 +3,7 @@
 //  Yelp
 //
 //  Created by Yan, Tristan on 4/5/17.
-//  Copyright © 2017 Timothy Lee. All rights reserved.
+//  Copyright © Tristan Yan. All rights reserved.
 //
 
 import Foundation
@@ -20,7 +20,7 @@ class Filters {
                        ["name" : "Rating", "value": "2"],
                        ["name" : "Most Reviewed", "value": "3"]]
     
-    let categories: [[String: String]] = [["name" : "Afghan", "code": "afghani", "selected": "false"],
+    var categoriesArray: [[String: String]] = [["name" : "Afghan", "code": "afghani", "selected": "false"],
                       ["name" : "African", "code": "african", "selected": "false"],
                       ["name" : "American, New", "code": "newamerican", "selected": "false"],
                       ["name" : "American, Traditional", "code": "tradamerican", "selected": "false"],
@@ -81,7 +81,7 @@ class Filters {
                       ["name" : "Fast Food", "code": "hotdogs", "selected": "false"],
                       ["name" : "Filipino", "code": "filipino", "selected": "false"],
                       ["name" : "Fish & Chips", "code": "fishnchips", "selected": "false"],
-                      ["name" : "Fondue", "code": "fondue"],
+                      ["name" : "Fondue", "code": "fondue", "selected": "false"],
                       ["name" : "Food Court", "code": "food_court", "selected": "false"],
                       ["name" : "Food Stands", "code": "foodstands", "selected": "false"],
                       ["name" : "French", "code": "french", "selected": "false"],
@@ -203,18 +203,24 @@ class Filters {
                 return YelpSortMode.bestMatched
             case 1:
                 return YelpSortMode.distance
-            case 3:
+            case 2:
                 return YelpSortMode.highestRated
             default:
                 return nil
-
             }
+        }
+        set (newSort) {
+            sortBy = (newSort?.rawValue)!
         }
     }
     
-    var deal: Bool {
+    var deal: Bool? {
         get {
-            return "true" == offeringADeal[0]["selected"]
+            return "true" == offeringADeal[0]["selected"]!
+        }
+        set (newDeal) {
+            print("\(newDeal!)")
+            offeringADeal[0]["selected"] = "\(newDeal!)"
         }
     }
     
@@ -225,6 +231,42 @@ class Filters {
                 return nil
             default:
                 return Double(distancesArray[distances]["value"]!)! * 1000
+            }
+        }
+        set (newRadius) {
+            let km = Int(newRadius! / 100)
+            switch km {
+            case 3:
+                distances = 1
+            case 10:
+                distances = 2
+            case 50:
+                distances = 3
+            case 200:
+                distances = 4
+            default:
+                distances = 0
+            }
+        }
+    }
+    
+    var categories: [String]? {
+        get {
+            let selectedCategories = categoriesArray.filter({row in
+                return row["selected"]! == "true"
+            })
+            let categoriesCodes = selectedCategories.map(){ return $0["code"]!}
+            return categoriesCodes
+        }
+        
+        set (newCategories) {
+            for index in 0..<categoriesArray.count {
+                let category = categoriesArray[index]["code"]!
+                if (newCategories?.contains(category))! {
+                    categoriesArray[index]["selected"] = "true"
+                } else {
+                    categoriesArray[index]["selected"] = "false"
+                }
             }
         }
     }

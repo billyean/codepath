@@ -3,16 +3,21 @@
 //  Yelp
 //
 //  Created by Yan, Tristan on 4/6/17.
-//  Copyright © 2017 Timothy Lee. All rights reserved.
+//  Copyright © 2017 Tristan Yan. All rights reserved.
 //
 
 import UIKit
 
+protocol FiltersChangedDelegate: class {
+    func filtersChanged(changer: FiltersViewController, filtersDidChange filters: Filters?)
+}
+
 class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    weak var delegate: FiltersChangedDelegate?
 
     @IBOutlet weak var filtersTableView: UITableView!
     
-    weak var filters: Filters!
+    var filters: Filters! = Filters()
     
     var distanceDropped: Bool = false
     
@@ -24,6 +29,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         filtersTableView.dataSource = self
         filtersTableView.delegate = self
 
@@ -46,19 +52,19 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             return 1
         case 1:
             if distanceDropped {
-                return filters.distancesArray.count
+                return filters!.distancesArray.count
             } else {
                 return 1
             }
         case 2:
             if sortByDropped {
-                return filters.sortByArray.count
+                return filters!.sortByArray.count
             } else {
                 return 1
             }
         default:
             if showAllCategories {
-                return filters.categories.count
+                return filters!.categoriesArray.count
             } else {
                 return 5
             }
@@ -71,18 +77,19 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             let cell0 = filtersTableView.dequeueReusableCell(withIdentifier: "OnOrOffTableViewCell", for: indexPath) as! OnOrOffTableViewCell
             let row = filters.offeringADeal[indexPath.row]
             cell0.OnOrOffLabel.text = row["name"]
-            if let value = row["value"] {
+            if let value = row["selected"] {
                 if value == "true" {
                     cell0.OnOrOffSwitch.isOn = true
                 }
             }
+            cell0.delegate = self
             return cell0
         case 1:
             if distanceDropped {
                 let cell1 = filtersTableView.dequeueReusableCell(withIdentifier: "MultipleSelectionTableViewCell", for: indexPath) as! MultipleSelectionTableViewCell
                 let row1 = filters.distancesArray[indexPath.row]
                 cell1.nameLabel.text = row1["name"]
-                if indexPath.row == filters.distances {
+                if indexPath.row == filters?.distances {
                     cell1.checkedImage.image = UIImage(named: "checked.png")
                 } else {
                     cell1.checkedImage.image = UIImage(named: "unchecked.png")
@@ -90,8 +97,8 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return cell1
             } else {
                 let cell1 = filtersTableView.dequeueReusableCell(withIdentifier: "DropdownTableViewCell", for: indexPath) as! DropdownTableViewCell
-                let element = filters.distancesArray[filters.distances]
-                cell1.nameLabel.text = element["name"]
+                let element = filters?.distancesArray[(filters?.distances)!]
+                cell1.nameLabel.text = element?["name"]
                 return cell1
             }
         case 2:
@@ -99,7 +106,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let cell2 = filtersTableView.dequeueReusableCell(withIdentifier: "MultipleSelectionTableViewCell", for: indexPath) as! MultipleSelectionTableViewCell
                 let row2 = filters.sortByArray[indexPath.row]
                 cell2.nameLabel.text = row2["name"]
-                if indexPath.row == filters.sortBy {
+                if indexPath.row == filters?.sortBy {
                     cell2.checkedImage.image = UIImage(named: "checked.png")
                 } else {
                     cell2.checkedImage.image = UIImage(named: "unchecked.png")
@@ -107,7 +114,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return cell2
             } else {
                 let cell2 = filtersTableView.dequeueReusableCell(withIdentifier: "DropdownTableViewCell", for: indexPath) as! DropdownTableViewCell
-                let element = filters.sortByArray[filters.sortBy]
+                let element = filters.sortByArray[(filters?.sortBy)!]
                 cell2.nameLabel.text = element["name"]
                 return cell2
             }
@@ -117,13 +124,14 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return singleLabelCell
             }
             let cell3 = filtersTableView.dequeueReusableCell(withIdentifier: "OnOrOffTableViewCell", for: indexPath) as! OnOrOffTableViewCell
-            let row = filters.categories[indexPath.row]
+            let row = filters.categoriesArray[indexPath.row]
             cell3.OnOrOffLabel.text = row["name"]
-            if let value = row["value"] {
+            if let value = row["selected"] {
                 if value == "true" {
                     cell3.OnOrOffSwitch.isOn = true
                 }
             }
+            cell3.delegate = self
             return cell3
         }
     }
@@ -177,6 +185,8 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
 
+    /*
+    */
     @IBAction func cancelSetting(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -189,10 +199,21 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let targetViewController = segue.destination as! BusinessesViewController
-        targetViewController.filters = filters
+    
+    @IBAction func doSearch(_ sender: Any) {
+        delegate?.filtersChanged(changer: self, filtersDidChange: filters)
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension FiltersViewController: SwitchBetweenOnAndOffDelegate {
+    func onSwitch(cell: OnOrOffTableViewCell, changedValue value: Bool?) {
+        let boolStr = String(describing: value!)
+        let indexPath = filtersTableView.indexPath(for: cell)
+        if indexPath?.section == 0 {
+            filters.offeringADeal[0]["selected"] = boolStr
+        } else {
+            filters.categoriesArray[(indexPath?.row)!]["selected"] = boolStr
+        }
     }
 }

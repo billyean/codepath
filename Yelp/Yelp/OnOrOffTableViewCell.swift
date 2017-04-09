@@ -2,14 +2,18 @@
 //  OnOrOffTableViewCell.swift
 //  Yelp
 //
-//  Created by Yan, Tristan on 4/6/17.
-//  Copyright © 2017 Timothy Lee. All rights reserved.
+//  Copyright © 2017 Yan, Tristan. All rights reserved.
 //
 
 import UIKit
 import TTSwitch
 
+protocol SwitchBetweenOnAndOffDelegate: class {
+    func onSwitch(cell: OnOrOffTableViewCell, changedValue value: Bool?)
+}
+
 class OnOrOffTableViewCell: UITableViewCell {
+    weak var delegate: SwitchBetweenOnAndOffDelegate?
     
     @IBOutlet weak var OnOrOffLabel: UILabel!
 
@@ -45,4 +49,8 @@ class OnOrOffTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func valueChanged(_ sender: Any) {
+        let onOrOffSwitch = sender as! UISwitch
+        delegate?.onSwitch(cell: self, changedValue: onOrOffSwitch.isOn)
+    }
 }
