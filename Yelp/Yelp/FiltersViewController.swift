@@ -79,7 +79,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell0.OnOrOffLabel.text = row["name"]
             if let value = row["selected"] {
                 if value == "true" {
-                    cell0.OnOrOffSwitch.isOn = true
+                    cell0.OnOrOffSwitch.isSelected = true
                 }
             }
             cell0.delegate = self
@@ -128,7 +128,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell3.OnOrOffLabel.text = row["name"]
             if let value = row["selected"] {
                 if value == "true" {
-                    cell3.OnOrOffSwitch.isOn = true
+                    cell3.OnOrOffSwitch.isSelected = true
                 }
             }
             cell3.delegate = self

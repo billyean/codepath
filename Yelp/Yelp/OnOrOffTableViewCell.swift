@@ -19,7 +19,7 @@ class OnOrOffTableViewCell: UITableViewCell {
 
     @IBOutlet weak var rectView: UIView!
     
-    @IBOutlet weak var OnOrOffSwitch: UISwitch!
+    @IBOutlet weak var OnOrOffSwitch: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +42,9 @@ class OnOrOffTableViewCell: UITableViewCell {
         //        OnOrOffSwitch.onString = "ON"
         //        OnOrOffSwitch.offString = "OFF"
         //        rectView.addSubview(OnOrOffSwitch)
+        OnOrOffSwitch.isSelected = false
+        OnOrOffSwitch.setImage(UIImage(named: "on"), for: .selected)
+        OnOrOffSwitch.setImage(UIImage(named: "off"), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -49,8 +52,14 @@ class OnOrOffTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    @IBAction func valueChanged(_ sender: Any) {
-        let onOrOffSwitch = sender as! UISwitch
-        delegate?.onSwitch(cell: self, changedValue: onOrOffSwitch.isOn)
+    @IBAction func touchDown(_ sender: Any) {
+        if OnOrOffSwitch.isSelected {
+            OnOrOffSwitch.isSelected = false
+        } else {
+            OnOrOffSwitch.isSelected = true
+        }
+
+        delegate?.onSwitch(cell: self, changedValue: OnOrOffSwitch.isSelected)
     }
+
 }

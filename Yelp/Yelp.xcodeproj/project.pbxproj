@@ -21,6 +21,8 @@
 		8287483F1E96171C00A0D6E7 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287483E1E96171C00A0D6E7 /* RestaurantTableViewCell.swift */; };
 		828748411E9621A300A0D6E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 828748401E9621A300A0D6E7 /* Main.storyboard */; };
 		82B8048D1E9A065D00CBCAE7 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B8048C1E9A065D00CBCAE7 /* pin.png */; };
+		82B8048F1E9A120700CBCAE7 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B8048E1E9A120700CBCAE7 /* off.png */; };
+		82B804911E9A120B00CBCAE7 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B804901E9A120B00CBCAE7 /* on.png */; };
 		82CD0FE41E972BF900408E1B /* OnOrOffTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD0FE31E972BF900408E1B /* OnOrOffTableViewCell.swift */; };
 		82CD0FE61E972CAA00408E1B /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD0FE51E972CAA00408E1B /* FiltersViewController.swift */; };
 		82CD0FE91E97326100408E1B /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 82CD0FE81E97326100408E1B /* down.png */; };
@@ -63,6 +65,8 @@
 		8287483E1E96171C00A0D6E7 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		828748401E9621A300A0D6E7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		82B8048C1E9A065D00CBCAE7 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		82B8048E1E9A120700CBCAE7 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
+		82B804901E9A120B00CBCAE7 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on.png; sourceTree = "<group>"; };
 		82CD0FE31E972BF900408E1B /* OnOrOffTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnOrOffTableViewCell.swift; sourceTree = "<group>"; };
 		82CD0FE51E972CAA00408E1B /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		82CD0FE81E97326100408E1B /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				82CD0FEB1E97372000408E1B /* unchecked.png */,
 				82CD0FE81E97326100408E1B /* down.png */,
 				8217CCBD1E97019800832D9F /* Yelp.png */,
+				82B8048E1E9A120700CBCAE7 /* off.png */,
+				82B804901E9A120B00CBCAE7 /* on.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -329,12 +335,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				828748411E9621A300A0D6E7 /* Main.storyboard in Resources */,
+				82B8048F1E9A120700CBCAE7 /* off.png in Resources */,
 				82CD0FED1E97372000408E1B /* unchecked.png in Resources */,
 				82E0AFCF1E98581500E66862 /* BusinessPopView.xib in Resources */,
 				82CD0FE91E97326100408E1B /* down.png in Resources */,
 				8217CCBE1E97019800832D9F /* Yelp.png in Resources */,
 				82CD0FEC1E97372000408E1B /* checked.png in Resources */,
 				82B8048D1E9A065D00CBCAE7 /* pin.png in Resources */,
+				82B804911E9A120B00CBCAE7 /* on.png in Resources */,
 				222D8A6519CCF9F900D2DB53 /* LaunchScreen.xib in Resources */,
 				222D8A6219CCF9F900D2DB53 /* Images.xcassets in Resources */,
 			);
