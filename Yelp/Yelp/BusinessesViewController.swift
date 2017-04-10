@@ -49,8 +49,8 @@ class BusinessesViewController: UIViewController {
         restaurantTableView.dataSource = self
         restaurantTableView.delegate = self
         restaurantMapView.delegate = self
-
         
+        restaurantTableView.rowHeight = UITableViewAutomaticDimension
         restaurantTableView.estimatedRowHeight = 100
         
         locationManager = CLLocationManager()
@@ -189,7 +189,6 @@ extension BusinessesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.categoryLabel.text = business.categories
         return cell
     }
-  
 }
 
 // Handle searchbar operations
