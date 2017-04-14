@@ -12,10 +12,12 @@ import Parse
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var messages=[AnyObject]()
+    
+    var messages: [PFObject]?
+    
     @IBAction func compose(_ sender: Any) {
         
-        var message = PFObject(className: "Message")
+        let message = PFObject(className: "Message")
         message["text"] = chatLabel.text
         message["user"] = PFUser.current()
         
@@ -43,11 +45,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if messages == nil {
-            return 0
-        } else {
-            print(messages.count)
+        if let messages = messages {
             return (messages.count)
+        } else {
+            return 0
         }
     }
     
@@ -56,13 +57,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         query.findObjectsInBackground(block: {(objects,error) in
             if error == nil {
                 if let objects = objects {
-                    for obj in objects {
-                        self.messages.append(obj)
-                    }
-                    print(self.messages.count)
-                    
+                    self.messages = objects
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
             
         })
@@ -70,9 +67,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        let message = messages[indexPath.row] as! PFObject
-        cell.messageLabel.text = message["text"] as! String
-        print(cell.messageLabel.text)
+        let message = messages?[indexPath.row]
+        cell.messageLabel.text = message?["text"] as? String
         return cell
     }
 

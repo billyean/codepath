@@ -18,10 +18,12 @@ class ViewController: UIViewController {
     @IBAction func Login(_ sender: Any) {
         let username = emailLabel.text
         let password = passwordLabel.text
+        UserDefaults.standard.set(username, forKey: "com.haiboyan.ParseDemo.username")
+        UserDefaults.standard.set(password, forKey: "com.haiboyan.ParseDemo.password")
         
         PFUser.logInWithUsername(inBackground: username!, password: password!, block: {(user, error) in
             if  user != nil {
-                print("Succeeded Login")
+
                 self.performSegue(withIdentifier: "showChatRoom", sender: self)
             }
         })
@@ -31,6 +33,8 @@ class ViewController: UIViewController {
         let user = PFUser()
         user.username = emailLabel.text
         user.password = passwordLabel.text
+        
+        UserDefaults.standard.set(user.username, forKey: "com.haiboyan.ParseDemo.username")
         
         user.signUpInBackground(block: {(succeeded, error) in
             if succeeded {
@@ -45,6 +49,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if let username = UserDefaults.standard.string(forKey: "com.haiboyan.ParseDemo.username") {
+            emailLabel.text = username
+        }
+        if let password = UserDefaults.standard.string(forKey: "com.haiboyan.ParseDemo.password") {
+            passwordLabel.text = password
+        }
     }
 
     override func didReceiveMemoryWarning() {

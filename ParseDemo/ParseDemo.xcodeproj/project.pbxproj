@@ -129,6 +129,7 @@
 				TargetAttributes = {
 					378119D41E9F17F700E6A494 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 5JR4XX68PE;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -346,9 +347,10 @@
 			baseConfigurationReference = 5D544BB8ADAC6B8AEDD6E5DA /* Pods-ParseDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5JR4XX68PE;
 				INFOPLIST_FILE = ParseDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CodePath.ParseDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haiyan.ParseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -359,9 +361,10 @@
 			baseConfigurationReference = 073C6D3307DA55D4FA68B84F /* Pods-ParseDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5JR4XX68PE;
 				INFOPLIST_FILE = ParseDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CodePath.ParseDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haiyan.ParseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
