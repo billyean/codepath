@@ -17,6 +17,8 @@ class User: NSObject {
     
     var tagline: String?
     
+    var savedDictionary: NSDictionary
+    
     init(dictionay: NSDictionary) {
         name = dictionay["name"] as? String
         screenName = dictionay["screen_name"] as? String
@@ -25,5 +27,6 @@ class User: NSObject {
             profileURL = URL(string: profileURLStr)
         }
         tagline = dictionay["description"] as? String
+        savedDictionary = dictionay
     }
 }

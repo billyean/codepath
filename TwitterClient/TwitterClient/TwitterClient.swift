@@ -29,10 +29,12 @@ class TwitterClient: BDBOAuth1SessionManager {
     let verifyCredentialURL = "1.1/account/verify_credentials.json"
     
     let homeTimelineURL = "1.1/statuses/home_timeline.json"
-
+    
     let newTweetURL = "1.1/statuses/update.json"
     
     let retweetURL = "1.1/statuses/retweet/tweetId.json"
+    
+    let unretweetURL = "1.1/statuses/unretweet/tweetId.json"
     
     let persistentUserKey = "com.haiyan.TwitterClient.user"
     
@@ -56,7 +58,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func login(whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: @escaping (String) -> Void) {
         loginSucess = succeededAction
         loginFailed = failedAction
@@ -108,7 +110,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             print("Get user credential")
             let userDictionary = response as! NSDictionary
             self.currentUser = User(dictionay: userDictionary)
-
+            self.persistentCurentUser()
+            
             if let succeededAction = succeededAction {
                 succeededAction()
             }
@@ -122,7 +125,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     func persistentCurentUser() {
         if let user = currentUser {
             do {
-                try UserDefaults.standard.set(JSONSerialization.data(withJSONObject: user, options: []), forKey: persistentUserKey)
+                try UserDefaults.standard.set(JSONSerialization.data(withJSONObject: user.savedDictionary, options: []), forKey: persistentUserKey)
             } catch {
                 print("Error happened when persistent user")
             }
@@ -152,10 +155,14 @@ class TwitterClient: BDBOAuth1SessionManager {
         removeCurrentUser()
         deauthorize()
     }
-
+    
     func fetchTimeline(whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
-        self.get(homeTimelineURL, parameters: nil, success: { (task, response) in
+        var parameters = [String:String]()
+        parameters["exclude_replies"] = "0"
+        //        parameters["count"] = 50
+        self.get(homeTimelineURL, parameters: parameters, success: { (task, response) in
             if let tweetDictionaries = response as? [NSDictionary] {
+                tweetDictionaries.forEach{ print($0) }
                 let  tweets = tweetDictionaries.map{ return Tweet(dictionary:$0)}
                 succeededAction(tweets)
             }
@@ -195,7 +202,40 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    func unfollow() {
+    func retweet(tweetId: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
+        let retweetURLStr = retweetURL.replacingOccurrences(of: "tweetId", with: tweetId)
+        var parameters = [String: String]()
+        parameters["id"] = tweetId
+        print(retweetURLStr)
+        self.post(retweetURLStr, parameters: parameters, success: { (task, response) in
+            if succeededAction != nil {
+                succeededAction!()
+            }
+        }, failure: { (task, error) in
+            if let failedAction = failedAction {
+                failedAction(error.localizedDescription)
+            }
+        })
+    }
+    
+    func unretweet(tweetId: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
+        let unretweetURLStr = unretweetURL.replacingOccurrences(of: "tweetId", with: tweetId)
+        var parameters = [String: String]()
+        parameters["id"] = tweetId
+        print(unretweetURLStr)
+        self.post(unretweetURLStr, parameters: parameters, success: { (task, response) in
+            if succeededAction != nil {
+                succeededAction!()
+            }
+        }, failure: { (task, error) in
+            print(error)
+            if let failedAction = failedAction {
+                failedAction(error.localizedDescription)
+            }
+        })
+    }
+    
+    func favorite(tweetId: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
         
     }
 }
