@@ -36,6 +36,10 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     let unretweetURL = "1.1/statuses/unretweet/tweetId.json"
     
+    let favoriteURL = "1.1/favorites/create.json"
+    
+    let unfavoriteURL = "1.1/favorites/destroy.json"
+    
     let persistentUserKey = "com.haiyan.TwitterClient.user"
     
     var currentUser: User?
@@ -173,19 +177,21 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func replyTweet(message: String, replyTweetId: Int, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
-        var parameters = [String: String]()
-        parameters["status"] = message
-        parameters["in_reply_to_status_id"] = "\(replyTweetId)"
-        self.post(newTweetURL, parameters: parameters, success: { (task, response) in
-            if succeededAction != nil {
-                succeededAction!()
+    func fetchMoreTimeline(oldestId: String, whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
+        var parameters = [String:String]()
+        parameters["exclude_replies"] = "0"
+        parameters["max_id"] = oldestId
+        self.get(homeTimelineURL, parameters: parameters, success: { (task, response) in
+            if let tweetDictionaries = response as? [NSDictionary] {
+                tweetDictionaries.forEach{ print($0) }
+                let  tweets = tweetDictionaries.map{ return Tweet(dictionary:$0)}
+                succeededAction(tweets)
             }
-        }) { (task, error) in
+        }, failure: { (task, error) in
             if let failedAction = failedAction {
-                failedAction(error.localizedDescription)
+                failedAction((error.localizedDescription))
             }
-        }
+        })
     }
     
     func newTweet(message: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
@@ -206,7 +212,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         let retweetURLStr = retweetURL.replacingOccurrences(of: "tweetId", with: tweetId)
         var parameters = [String: String]()
         parameters["id"] = tweetId
-        print(retweetURLStr)
         self.post(retweetURLStr, parameters: parameters, success: { (task, response) in
             if succeededAction != nil {
                 succeededAction!()
@@ -236,6 +241,61 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func favorite(tweetId: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
-        
+        var parameters = [String: String]()
+        parameters["id"] = tweetId
+        self.post(favoriteURL, parameters: parameters, success: { (task, response) in
+            if succeededAction != nil {
+                succeededAction!()
+            }
+        }, failure: { (task, error) in
+            if let failedAction = failedAction {
+                failedAction(error.localizedDescription)
+            }
+        })
     }
+    
+    func unfavorite(tweetId: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
+        var parameters = [String: String]()
+        parameters["id"] = tweetId
+        self.post(unfavoriteURL, parameters: parameters, success: { (task, response) in
+            if succeededAction != nil {
+                succeededAction!()
+            }
+        }, failure: { (task, error) in
+            if let failedAction = failedAction {
+                failedAction(error.localizedDescription)
+            }
+        })
+    }
+    
+    func createNewTweet (message: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
+        var parameters = [String: String]()
+        parameters["status"] = message
+        self.post(newTweetURL, parameters: parameters, success: { (task, response) in
+            if succeededAction != nil {
+                succeededAction!()
+            }
+        }, failure: { (task, error) in
+            if let failedAction = failedAction {
+                failedAction(error.localizedDescription)
+            }
+        })
+    }
+    
+    func replyTweet (message: String, toTweetId: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
+        var parameters = [String: String]()
+        parameters["status"] = message
+        parameters["in_reply_to_status_id"] = toTweetId
+        self.post(newTweetURL, parameters: parameters, success: { (task, response) in
+            if succeededAction != nil {
+                succeededAction!()
+            }
+        }, failure: { (task, error) in
+            if let failedAction = failedAction {
+                failedAction(error.localizedDescription)
+            }
+        })
+    }
+    
+    
 }

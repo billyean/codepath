@@ -55,7 +55,6 @@ class TweetTableViewCell: UITableViewCell {
         }
         
         tweetContent.text = tweet.tweetMessage
-        tweetContent.sizeToFit()
         
         if let tweetImageURL = tweet.imageURL {
             tweetImage.setImageWith(tweetImageURL, placeholderImage: UIImage(named: "tweet"))
@@ -123,6 +122,48 @@ class TweetTableViewCell: UITableViewCell {
         tweetController.addAction(cancelButton)
         viewController?.navigationController?.present(tweetController, animated: true, completion: nil)
     }
+
+    @IBAction func favorite(_ sender: Any) {
+        if (associatedTweet?.favoritedAlready)! {
+            TwitterClient.sharedInstance.unfavorite(tweetId: (self.associatedTweet?.tweetId!)!, whenSucceeded: nil, whenFailed: nil)
+            self.associatedTweet?.favoritesCount = (self.associatedTweet?.favoritesCount)!! - 1
+            let favoritesCount = (self.associatedTweet?.favoritesCount)!
+            if favoritesCount == 0 {
+                self.favoriteCountLabel.text = ""
+            } else {
+                self.favoriteCountLabel.text = String(favoritesCount)
+            }
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.favoriteButton.alpha = 0.0
+                self.favoriteButton.imageView?.startAnimating()
+            }, completion: { (finished) in
+                self.favoriteButton.imageView?.image = UIImage(named: "favorite")
+                self.favoriteButton.alpha = 1.0
+                self.favoriteButton.imageView?.stopAnimating()
+            })
+            
+            self.associatedTweet?.favoritedAlready = false
+        } else {
+            TwitterClient.sharedInstance.favorite(tweetId: (self.associatedTweet?.tweetId!)!, whenSucceeded: nil, whenFailed: nil)
+            self.associatedTweet?.favoritesCount = (self.associatedTweet?.favoritesCount)!! + 1
+            let favoritesCount = (self.associatedTweet?.favoritesCount)!
+            self.favoriteCountLabel.text = String(favoritesCount)
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.favoriteButton.alpha = 0.0
+                self.favoriteButton.imageView?.startAnimating()
+            }, completion: { (finished) in
+                self.favoriteButton.imageView?.image = UIImage(named: "favorite-red")
+                self.favoriteButton.alpha = 1.0
+                self.favoriteButton.imageView?.stopAnimating()
+            })
+            
+            self.associatedTweet?.favoritedAlready = true
+        }
+    }
     
-    
+    @IBAction func replyTo(_ sender: Any) {
+        viewController?.performSegue(withIdentifier: "replyTweet", sender: self)
+    }
 }

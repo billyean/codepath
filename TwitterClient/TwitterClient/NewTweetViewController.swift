@@ -21,9 +21,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var charCountLabel: UILabel!
     
-    @IBOutlet weak var cancelImageView: UIImageView!
-    
-    let placeHolderText = "What's happening?"
+    var placeHolderText = "What's happening?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +50,16 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
             let alpha = CGFloat(1.0)
             tweetButton.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
             tweetButton.tintColor = UIColor.white
-            charCountLabel.text = String(textView.text.characters.count)
+            
+            let leftChars = 140 - textView.text.characters.count
+            charCountLabel.text = String(leftChars)
+            
+            if leftChars < 0 {
+                charCountLabel.textColor = UIColor.red
+                tweetButton.isEnabled = false
+                tweetButton.backgroundColor = UIColor.white
+                tweetButton.tintColor = UIColor.gray
+            }
         } else {
             tweetButton.isEnabled = false
             tweetButton.backgroundColor = UIColor.white
@@ -81,11 +88,21 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Pass the selected object to the new vieirst w controller.
     }
     */
 
     @IBAction func cancelTweet(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func createNewTweet(_ sender: Any) {
+        if let tweetMessage = textView.text {
+            if tweetMessage.characters.count > 0 {
+                TwitterClient.sharedInstance.createNewTweet(message: tweetMessage, whenSucceeded: nil, whenFailed: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
 }

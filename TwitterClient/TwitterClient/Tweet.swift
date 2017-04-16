@@ -32,6 +32,8 @@ class Tweet: NSObject {
     
     var retweetedBy: String?
     
+    var retweetedByScreenName: String?
+    
     var retweetedAlready: Bool = false
     
     var favoritedAlready: Bool = false
@@ -93,6 +95,7 @@ class Tweet: NSObject {
             isRetweeted = true
             if let user = dictionary["user"] as? NSDictionary {
                 retweetedBy = user["name"] as? String
+                retweetedByScreenName = user["screen_name"] as? String
             }
         }
         
