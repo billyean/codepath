@@ -959,6 +959,9 @@
                                                         <constraint firstAttribute="width" constant="16" id="pMb-6M-ms8"/>
                                                     </constraints>
                                                     <state key="normal" image="retweet.png"/>
+                                                    <connections>
+                                                        <action selector="retweet:" destination="TLU-R1-wSa" eventType="touchUpInside" id="BsU-lM-9NH"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cto-Dm-Bkd" userLabel="Favorite Button">
                                                     <rect key="frame" x="232" y="6" width="16" height="16"/>
@@ -967,6 +970,9 @@
                                                         <constraint firstAttribute="height" constant="16" id="Ugu-zE-O7G"/>
                                                     </constraints>
                                                     <state key="normal" image="favorite.png"/>
+                                                    <connections>
+                                                        <action selector="favorite:" destination="TLU-R1-wSa" eventType="touchUpInside" id="eR0-fv-4pa"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -978,6 +984,10 @@
                                                 <constraint firstItem="64Y-tv-AYO" firstAttribute="top" secondItem="5aT-oX-KJU" secondAttribute="top" constant="6" id="z7A-9E-8ck"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteButton" destination="cto-Dm-Bkd" id="HQb-cP-Ciu"/>
+                                            <outlet property="retweetButton" destination="s2t-c0-aFo" id="I7n-pR-R1n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

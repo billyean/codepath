@@ -20,7 +20,7 @@ class DetailTweetViewController: UIViewController {
         detailTweetTableView.dataSource = self
         
         detailTweetTableView.rowHeight = UITableViewAutomaticDimension
-        detailTweetTableView.estimatedRowHeight = 44
+        detailTweetTableView.estimatedRowHeight = 22
         // Do any additional setup after loading the view.
     }
     
@@ -66,9 +66,11 @@ extension DetailTweetViewController: UITableViewDelegate, UITableViewDataSource 
                 cell?.setAssociate(tweet: tweet!)
                 return cell!
             } else {
-                
                 let cell = detailTweetTableView.dequeueReusableCell(withIdentifier: "ActionsTableViewCell", for: indexPath) as? ActionsTableViewCell
+                
                 cell?.setAssociate(tweet: tweet!)
+                cell?.viewController = self
+                cell?.detailTweetTableView = self.detailTweetTableView
                 return cell!
             }
         }
