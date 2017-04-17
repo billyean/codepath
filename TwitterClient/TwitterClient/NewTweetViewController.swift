@@ -52,6 +52,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
             let alpha = CGFloat(1.0)
             tweetButton.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
             tweetButton.tintColor = UIColor.white
+            charCountLabel.textColor = UIColor.gray
             
             let leftChars = 140 - textView.text.characters.count
             charCountLabel.text = String(leftChars)
