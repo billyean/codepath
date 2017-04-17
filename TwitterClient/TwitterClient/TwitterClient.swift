@@ -268,12 +268,13 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func createNewTweet (message: String, whenSucceeded succeededAction: (() -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
+    func createNewTweet (message: String, whenSucceeded succeededAction: ((Tweet) -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
         var parameters = [String: String]()
         parameters["status"] = message
         self.post(newTweetURL, parameters: parameters, success: { (task, response) in
             if succeededAction != nil {
-                succeededAction!()
+                let tweet = Tweet(dictionary: (response as? NSDictionary)!)
+                succeededAction!(tweet)
             }
         }, failure: { (task, error) in
             if let failedAction = failedAction {

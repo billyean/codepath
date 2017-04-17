@@ -9,17 +9,6 @@
 import UIKit
 
 class ReplyTweetViewController: NewTweetViewController {
-
-//    @IBOutlet weak var userImageView: UIImageView!
-//    
-//    @IBOutlet weak var textView: UITextView!
-//    
-//    @IBOutlet weak var tweetButton: UIButton!
-//    
-//    @IBOutlet weak var borderView: UIView!
-//    
-//    @IBOutlet weak var charCountLabel: UILabel!
-    
     @IBOutlet weak var replyToLabel: UILabel!
     
     var tweet: Tweet?
@@ -40,12 +29,6 @@ class ReplyTweetViewController: NewTweetViewController {
         
         replyToLabel.text = "Replying to \(toWho!)"
     }
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
 
     /*
     // MARK: - Navigation

@@ -23,6 +23,8 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     
     var placeHolderText = "What's happening?"
     
+    var tweetsViewController: TweetsViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -99,7 +101,12 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     @IBAction func createNewTweet(_ sender: Any) {
         if let tweetMessage = textView.text {
             if tweetMessage.characters.count > 0 {
-                TwitterClient.sharedInstance.createNewTweet(message: tweetMessage, whenSucceeded: nil, whenFailed: nil)
+                
+                TwitterClient.sharedInstance.createNewTweet(message: tweetMessage, whenSucceeded: {(tweet) in
+                    self.tweetsViewController?.tweets?.insert(tweet, at: 0)
+                    self.tweetsViewController?.tweetTableView.reloadData()
+                }, whenFailed: nil)
+                
                 self.dismiss(animated: true, completion: nil)
             }
         }
