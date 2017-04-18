@@ -22,6 +22,10 @@ class TweetsViewController: UIViewController {
         tweetTableView.delegate = self
         tweetTableView.dataSource = self
         
+        tweetTableView.rowHeight = UITableViewAutomaticDimension
+        tweetTableView.estimatedRowHeight = 120
+        
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
         tweetTableView.insertSubview(refreshControl, at: 0)
