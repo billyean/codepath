@@ -2,8 +2,8 @@
 //  BusinessesViewController.swift
 //  Yelp
 //
-//  Created by Tristan Yan on 4/07/17.
-//  Copyright (c) 2015 Tristan Yan. All rights reserved.
+//  Created by Haibo Yan on 4/07/17.
+//  Copyright (c) 2015 Haibo Yan. All rights reserved.
 //
 
 import UIKit

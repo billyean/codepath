@@ -2,8 +2,8 @@
 //  RestaurantTableViewCell.swift
 //  Yelp
 //
-//  Created by Yan, Tristan on 4/5/17.
-//  Copyright © 2017 Timothy Lee. All rights reserved.
+//  Created by Haibo Yan on 4/5/17.
+//  Copyright © 2017 Haibo Yan. All rights reserved.
 //
 
 import UIKit

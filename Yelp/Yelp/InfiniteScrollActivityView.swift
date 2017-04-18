@@ -2,8 +2,8 @@
 //  InfiniteScrollActivityView.swift
 //  Yelp
 //
-//  Created by Yan, Tristan on 4/9/17.
-//  Copyright © 2017 Timothy Lee. All rights reserved.
+//  Created by Haibo Yan on 4/9/17.
+//  Copyright © 2017 Haibo Yan. All rights reserved.
 //
 
 import UIKit

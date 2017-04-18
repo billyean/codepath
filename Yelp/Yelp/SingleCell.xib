@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleCell" id="Eeh-Yl-reh" customClass="SingleCell" customModule="Yelp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eeh-Yl-reh" id="eiB-Sz-Vs3">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJ4-7g-67H">
+                        <rect key="frame" x="16" y="1" width="343" height="41.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALn-bf-TWk">
+                                <rect key="frame" x="16" y="11" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down.png" translatesAutoresizingMaskIntoConstraints="NO" id="UIf-gf-ujy">
+                                <rect key="frame" x="303" y="11" width="24" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Rdo-DZ-Vs0"/>
+                                    <constraint firstAttribute="height" constant="20" id="yVg-xC-b91"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UIf-gf-ujy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SJ4-7g-67H" secondAttribute="top" constant="8" id="Adl-sa-DRY"/>
+                            <constraint firstItem="UIf-gf-ujy" firstAttribute="centerY" secondItem="ALn-bf-TWk" secondAttribute="centerY" id="Ir2-01-ic9"/>
+                            <constraint firstItem="UIf-gf-ujy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ALn-bf-TWk" secondAttribute="trailing" constant="20" id="e7C-mL-fCt"/>
+                            <constraint firstAttribute="trailing" secondItem="UIf-gf-ujy" secondAttribute="trailing" constant="16" id="ehM-rf-Hl1"/>
+                            <constraint firstItem="ALn-bf-TWk" firstAttribute="leading" secondItem="SJ4-7g-67H" secondAttribute="leading" constant="16" id="vk0-HQ-ueu"/>
+                            <constraint firstItem="UIf-gf-ujy" firstAttribute="centerY" secondItem="SJ4-7g-67H" secondAttribute="centerY" id="zkQ-fg-8oL"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SJ4-7g-67H" firstAttribute="top" secondItem="eiB-Sz-Vs3" secondAttribute="top" constant="1" id="5k8-d5-UAd"/>
+                    <constraint firstAttribute="trailing" secondItem="SJ4-7g-67H" secondAttribute="trailing" constant="16" id="8bm-2j-44L"/>
+                    <constraint firstItem="SJ4-7g-67H" firstAttribute="leading" secondItem="eiB-Sz-Vs3" secondAttribute="leading" constant="16" id="IrN-qg-4dG"/>
+                    <constraint firstAttribute="bottom" secondItem="SJ4-7g-67H" secondAttribute="bottom" constant="1" id="ps4-gc-EBC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="downImageView" destination="UIf-gf-ujy" id="LMX-iB-Rdu"/>
+                <outlet property="selectedLabel" destination="ALn-bf-TWk" id="aMb-Ds-tkA"/>
+            </connections>
+            <point key="canvasLocation" x="163.5" y="-134"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="down.png" width="24" height="24"/>
+    </resources>
+</document>

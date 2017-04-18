@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Yelp
 //
-//  Copyright (c) 2017 Tristan Yan. All rights reserved.
+//  Copyright (c) 2017 Haibo Yan. All rights reserved.
 //
 
 import UIKit

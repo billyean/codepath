@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MultipleSelectionCell" id="Y0X-dj-FnZ" customClass="MultipleSelectionCell" customModule="Yelp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y0X-dj-FnZ" id="QJr-22-unH">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCM-T2-gBG">
+                        <rect key="frame" x="16" y="1" width="343" height="41.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqo-6V-hJB">
+                                <rect key="frame" x="16" y="10.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-OD-BXr">
+                                <rect key="frame" x="307" y="11" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="E7A-PQ-Tx3"/>
+                                    <constraint firstAttribute="width" constant="20" id="Zg9-7A-HLg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gqo-6V-hJB" firstAttribute="leading" secondItem="BCM-T2-gBG" secondAttribute="leading" constant="16" id="Cvv-4n-c1J"/>
+                            <constraint firstAttribute="trailing" secondItem="ogE-OD-BXr" secondAttribute="trailing" constant="16" id="DQn-Se-ciX"/>
+                            <constraint firstItem="ogE-OD-BXr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BCM-T2-gBG" secondAttribute="top" constant="8" id="Pvh-0c-v5F"/>
+                            <constraint firstItem="ogE-OD-BXr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gqo-6V-hJB" secondAttribute="trailing" constant="20" id="hU6-IG-W9v"/>
+                            <constraint firstItem="gqo-6V-hJB" firstAttribute="centerY" secondItem="BCM-T2-gBG" secondAttribute="centerY" id="p4X-PP-C4i"/>
+                            <constraint firstItem="ogE-OD-BXr" firstAttribute="centerY" secondItem="BCM-T2-gBG" secondAttribute="centerY" id="vFU-0u-ECI"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="BCM-T2-gBG" secondAttribute="bottom" constant="1" id="dbt-ox-fM3"/>
+                    <constraint firstItem="BCM-T2-gBG" firstAttribute="top" secondItem="QJr-22-unH" secondAttribute="top" constant="1" id="kkf-hN-Ubm"/>
+                    <constraint firstAttribute="trailing" secondItem="BCM-T2-gBG" secondAttribute="trailing" constant="16" id="p2H-Nb-E4L"/>
+                    <constraint firstItem="BCM-T2-gBG" firstAttribute="leading" secondItem="QJr-22-unH" secondAttribute="leading" constant="16" id="zNq-vC-26S"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="checkedImageView" destination="ogE-OD-BXr" id="TMz-K0-gLb"/>
+                <outlet property="selectionLabel" destination="gqo-6V-hJB" id="o00-W5-n6q"/>
+            </connections>
+            <point key="canvasLocation" x="27.5" y="-116"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -2,8 +2,8 @@
 //  FiltersViewController.swift
 //  Yelp
 //
-//  Created by Yan, Tristan on 4/6/17.
-//  Copyright © 2017 Tristan Yan. All rights reserved.
+//  Created by Haibo Yan on 4/6/17.
+//  Copyright © 2017 Haibo Yan. All rights reserved.
 //
 
 import UIKit
@@ -19,13 +19,13 @@ class FiltersViewController: UIViewController {
     
     var filters: Filters! = Filters()
     
-    var distanceDropped: Bool = false
-    
-    var sortByDropped: Bool = false
-    
     var showAllCategories: Bool = false
     
     let HeaderViewIdentifier = "TableViewHeaderView"
+    
+    var distanceModelCell: ModelCell?
+    
+    var sortbyModelCell: ModelCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,16 @@ class FiltersViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         filtersTableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
+        
+        let distances = filters.distancesArray.map{  return $0["name"] }  as! [String]
+        let distanceSelectIndex = filters.distances
+        distanceModelCell = ModelCell(selections: distances, byDefault: distanceSelectIndex, inTableView: filtersTableView)
+        distanceModelCell?.delegate = self
+        
+        let sortedBy = filters.sortByArray.map{  return $0["name"] } as! [String]
+        let sortedByIndex = filters.sortBy
+        sortbyModelCell = ModelCell(selections: sortedBy, byDefault: sortedByIndex, inTableView: filtersTableView)
+        sortbyModelCell?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,17 +84,9 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            if distanceDropped {
-                return filters!.distancesArray.count
-            } else {
-                return 1
-            }
+            return distanceModelCell?.rows ?? 0
         case 2:
-            if sortByDropped {
-                return filters!.sortByArray.count
-            } else {
-                return 1
-            }
+            return sortbyModelCell?.rows ?? 0
         default:
             if showAllCategories {
                 return filters!.categoriesArray.count
@@ -108,39 +110,9 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
             cell0.delegate = self
             return cell0
         case 1:
-            if distanceDropped {
-                let cell1 = filtersTableView.dequeueReusableCell(withIdentifier: "MultipleSelectionTableViewCell", for: indexPath) as! MultipleSelectionTableViewCell
-                let row1 = filters.distancesArray[indexPath.row]
-                cell1.nameLabel.text = row1["name"]
-                if indexPath.row == filters?.distances {
-                    cell1.checkedImage.image = UIImage(named: "checked.png")
-                } else {
-                    cell1.checkedImage.image = UIImage(named: "unchecked.png")
-                }
-                return cell1
-            } else {
-                let cell1 = filtersTableView.dequeueReusableCell(withIdentifier: "DropdownTableViewCell", for: indexPath) as! DropdownTableViewCell
-                let element = filters?.distancesArray[(filters?.distances)!]
-                cell1.nameLabel.text = element?["name"]
-                return cell1
-            }
+            return (distanceModelCell?.cellAtIndexPath(indexPath: indexPath))!
         case 2:
-            if sortByDropped {
-                let cell2 = filtersTableView.dequeueReusableCell(withIdentifier: "MultipleSelectionTableViewCell", for: indexPath) as! MultipleSelectionTableViewCell
-                let row2 = filters.sortByArray[indexPath.row]
-                cell2.nameLabel.text = row2["name"]
-                if indexPath.row == filters?.sortBy {
-                    cell2.checkedImage.image = UIImage(named: "checked.png")
-                } else {
-                    cell2.checkedImage.image = UIImage(named: "unchecked.png")
-                }
-                return cell2
-            } else {
-                let cell2 = filtersTableView.dequeueReusableCell(withIdentifier: "DropdownTableViewCell", for: indexPath) as! DropdownTableViewCell
-                let element = filters.sortByArray[(filters?.sortBy)!]
-                cell2.nameLabel.text = element["name"]
-                return cell2
-            }
+            return (sortbyModelCell?.cellAtIndexPath(indexPath: indexPath))!
         default:
             if !showAllCategories && indexPath.row == 4 {
                 let singleLabelCell = filtersTableView.dequeueReusableCell(withIdentifier: "SingleLabelCell", for: indexPath) as! SingleLabelCell
@@ -186,17 +158,9 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-            if distanceDropped {
-                filters.distances = indexPath.row
-            }
-            distanceDropped = !distanceDropped
-            filtersTableView.reloadData()
+            distanceModelCell?.tapAt(rowAt: indexPath.row)
         case 2:
-            if sortByDropped {
-                filters.sortBy = indexPath.row
-            }
-            sortByDropped = !sortByDropped
-            filtersTableView.reloadData()
+            sortbyModelCell?.tapAt(rowAt: indexPath.row)
         case 3:
             if !showAllCategories && indexPath.row == 4 {
                 showAllCategories = true
@@ -217,6 +181,17 @@ extension FiltersViewController: SwitchBetweenOnAndOffDelegate {
             filters.offeringADeal[0]["selected"] = boolStr
         } else {
             filters.categoriesArray[(indexPath?.row)!]["selected"] = boolStr
+        }
+    }
+}
+
+extension FiltersViewController: ReSelectDelegate {
+    func onChanged(cell:UITableViewCell, changedValue value: Int?) {
+        let indexPath = filtersTableView.indexPath(for: cell)
+        if indexPath?.section == 1 {
+            filters.distances = value!
+        } else {
+            filters.sortBy = value!
         }
     }
 }

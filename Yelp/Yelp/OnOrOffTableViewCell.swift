@@ -2,7 +2,7 @@
 //  OnOrOffTableViewCell.swift
 //  Yelp
 //
-//  Copyright © 2017 Yan, Tristan. All rights reserved.
+//  Copyright © 2017 Haibo Yan. All rights reserved.
 //
 
 import UIKit
@@ -25,23 +25,6 @@ class OnOrOffTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         rectView.layer.borderColor = UIColor.lightGray.cgColor
-        //        let leadingOrigin = OnOrOffLabel.frame.origin
-        //        let leadingSize = OnOrOffLabel.frame.size
-        //        let tailingOriginal = rectView.frame.origin
-        //        let tailingSize = rectView.frame.size
-        //
-        //        let width: Double = 50
-        //        let height: Double = 24
-        //        let tailingSpace: Double = 6
-        //
-        //        let x = Double(tailingOriginal.x) + Double(tailingSize.width) - width - tailingSpace
-        //        let y = Double(leadingOrigin.y) + Double(leadingSize.height / 2) - height / 2
-        //
-        //        OnOrOffSwitch = TTSwitch(frame: CGRect(x: x, y: y, width: width, height: height))
-        //        OnOrOffSwitch.thumbImage = UIImage(named: "Yelp")
-        //        OnOrOffSwitch.onString = "ON"
-        //        OnOrOffSwitch.offString = "OFF"
-        //        rectView.addSubview(OnOrOffSwitch)
         OnOrOffSwitch.isSelected = false
         OnOrOffSwitch.setImage(UIImage(named: "on"), for: .selected)
         OnOrOffSwitch.setImage(UIImage(named: "off"), for: .normal)
