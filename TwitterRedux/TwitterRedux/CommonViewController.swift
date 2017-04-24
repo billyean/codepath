@@ -119,6 +119,9 @@ class CommonViewController: UIViewController {
             if let target = segue.destination as? ReplyToTweetViewController {
                 target.tweet = sender as? Tweet
             }
+        } else if segue.identifier == "showUserProfile" {
+            let target = segue.destination as? UserProfileViewController
+            target?.screenName = sender as? String
         }
     }
 

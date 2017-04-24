@@ -26,6 +26,7 @@
 		829918951EAD19F6005E4DB2 /* TimelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829918941EAD19F6005E4DB2 /* TimelinesViewController.swift */; };
 		829918971EAD3D7E005E4DB2 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829918961EAD3D7E005E4DB2 /* CommonViewController.swift */; };
 		829918991EAD805B005E4DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 829918981EAD805B005E4DB2 /* Assets.xcassets */; };
+		8299189B1EADD36C005E4DB2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299189A1EADD36C005E4DB2 /* UserProfileViewController.swift */; };
 		82AFB5DE1EA9EF1E003DE1AB /* retweet-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 82AFB5D71EA9EF1E003DE1AB /* retweet-green.png */; };
 		82AFB5DF1EA9EF1E003DE1AB /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82AFB5D81EA9EF1E003DE1AB /* cancel.png */; };
 		82AFB5E01EA9EF1E003DE1AB /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 82AFB5D91EA9EF1E003DE1AB /* retweet.png */; };
@@ -68,6 +69,7 @@
 		829918941EAD19F6005E4DB2 /* TimelinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelinesViewController.swift; sourceTree = "<group>"; };
 		829918961EAD3D7E005E4DB2 /* CommonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		829918981EAD805B005E4DB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8299189A1EADD36C005E4DB2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		82AFB5D71EA9EF1E003DE1AB /* retweet-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-green.png"; sourceTree = "<group>"; };
 		82AFB5D81EA9EF1E003DE1AB /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		82AFB5D91EA9EF1E003DE1AB /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet.png; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				829918901EAC228C005E4DB2 /* ReplyToTweetViewController.swift */,
 				829918941EAD19F6005E4DB2 /* TimelinesViewController.swift */,
 				829918961EAD3D7E005E4DB2 /* CommonViewController.swift */,
+				8299189A1EADD36C005E4DB2 /* UserProfileViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				829918931EAC3115005E4DB2 /* LoginDelegate.swift in Sources */,
+				8299189B1EADD36C005E4DB2 /* UserProfileViewController.swift in Sources */,
 				829918911EAC228C005E4DB2 /* ReplyToTweetViewController.swift in Sources */,
 				8299186D1EAA8794005E4DB2 /* AccountTableViewCell.swift in Sources */,
 				8299188D1EAC0FBC005E4DB2 /* MentionsViewController.swift in Sources */,

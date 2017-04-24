@@ -34,6 +34,8 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     let mentionsTimelineURL = "1.1/statuses/mentions_timeline.json"
     
+    let userURL = "1.1/users/show.json"
+    
     let newTweetURL = "1.1/statuses/update.json"
     
     let retweetURL = "1.1/statuses/retweet/tweetId.json"
@@ -161,10 +163,10 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func fetchUserTimeline(whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
+    func fetchUserTimeline(_ userId: String, whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
         var parameters = [String:String]()
         parameters["exclude_replies"] = "0"
-        parameters["user_id"] = User.sharedUserGroup.activeUser?.id
+        parameters["user_id"] = userId
         self.get(userTimelineURL, parameters: parameters, success: { (task, response) in
             if let tweetDictionaries = response as? [NSDictionary] {
                 let  tweets = tweetDictionaries.map{ return Tweet(dictionary:$0)}
@@ -177,10 +179,10 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func fetchMoreUserTimeline(oldestId: Int, whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
+    func fetchMoreUserTimeline(_ userId: String, oldestId: Int, whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
         var parameters = [String:String]()
         parameters["exclude_replies"] = "0"
-        parameters["user_id"] = User.sharedUserGroup.activeUser?.id
+        parameters["user_id"] = userId
         parameters["max_id"] = "\(oldestId - 1)"
         self.get(userTimelineURL, parameters: parameters, success: { (task, response) in
             if let tweetDictionaries = response as? [NSDictionary] {
@@ -216,6 +218,25 @@ class TwitterClient: BDBOAuth1SessionManager {
             if let tweetDictionaries = response as? [NSDictionary] {
                 let  tweets = tweetDictionaries.map{ return Tweet(dictionary:$0)}
                 succeededAction(tweets)
+            }
+        }, failure: { (task, error) in
+            if let failedAction = failedAction {
+                failedAction((error.localizedDescription))
+            }
+        })
+    }
+    
+    
+    
+    func fetchUser(screenName: String, whenSucceeded succeededAction: ((User) -> Void)?, whenFailed failedAction: ((String) -> Void)?) {
+        var parameters = [String:String]()
+        parameters["screen_name"] = screenName
+        self.get(userURL, parameters: parameters, success: { (task, response) in
+            let userDictionary = response as! [String: Any]
+            let user = User(dictionay: userDictionary)
+            print(user.screenName)
+            if let succeededAction = succeededAction {
+                succeededAction(user)
             }
         }, failure: { (task, error) in
             if let failedAction = failedAction {

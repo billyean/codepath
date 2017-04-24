@@ -11,28 +11,30 @@ import UIKit
 class ProfileViewController: CommonViewController {
     var headerView: ProfileTableViewCell?
 
-    var contentOriginY: CGFloat?
+//    var contentOriginY: CGFloat?
+//    
+//    var originHeaderHeight: CGFloat?
     
-    var originHeaderHeight: CGFloat?
-    
-
+    var user = User.sharedUserGroup.activeUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.y
         let headerView = tweetsTableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell") as? ProfileTableViewCell
-        headerView?.setModel(model: User.sharedUserGroup.activeUser!)
+        headerView?.setModel(model: user)
         tweetsTableView.tableHeaderView = headerView
-        originHeaderHeight = headerView?.bounds.height
+//        originHeaderHeight = headerView?.bounds.height
 
         TwitterClient.sharedInstance.fetchUserTimeline(
+            user.id!,
             whenSucceeded: { (timelines) in
             self.tweets = timelines
             self.tweetsTableView.reloadData()
         }, whenFailed: nil)
-        loadTweetClousure = TwitterClient.sharedInstance.fetchUserTimeline
-        loadMoreTweetClousure = TwitterClient.sharedInstance.fetchMoreUserTimeline
+
+        loadTweetClousure = getLoadTweetClousure()
+        loadMoreTweetClousure = getLoadMoreTweetClousure()
     }
 
     /*
@@ -44,13 +46,21 @@ class ProfileViewController: CommonViewController {
         // Pass the selected object to the new view controller.
     }
     */
-//    func switchTo() {
-//        let userId = User.sharedUserGroup.activeUser?.id
-//        TwitterClient.sharedInstance.fetchUserTimeline(whenSucceeded: { (timelines) in
-//            self.tweets = timelines
-//            self.tweetsTableView.reloadData()
-//        }, whenFailed: nil)
-//    }
+
+    
+    func getLoadTweetClousure() -> ((@escaping ([Tweet]) -> Void, ((String) -> Void)?) -> ())? {
+        func loadTweetClousure(succeed: @escaping ([Tweet]) -> Void, failed: ((String) -> Void)?) {
+            return TwitterClient.sharedInstance.fetchUserTimeline(user.id!, whenSucceeded: succeed, whenFailed: failed)
+        }
+        return loadTweetClousure
+    }
+    
+    func getLoadMoreTweetClousure() -> ((Int, @escaping ([Tweet]) -> Void, ((String) -> Void)?) -> ())? {
+        func loadMoreTweetClousure(oldestId: Int, succeed: @escaping ([Tweet]) -> Void, failed: ((String) -> Void)?) {
+            return TwitterClient.sharedInstance.fetchMoreUserTimeline(user.id!, oldestId: oldestId, whenSucceeded: succeed, whenFailed: failed)
+        }
+        return loadMoreTweetClousure
+    }
 }
 
 

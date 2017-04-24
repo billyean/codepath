@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetTableViewCell: UITableViewCell {    
+class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var tweetImage: UIImageView!
     
     @IBOutlet weak var tweetContent: UILabel!
@@ -36,6 +36,16 @@ class TweetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        tweetImage.isUserInteractionEnabled = true
+        tweetImage.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        if tweet.screenName != User.sharedUserGroup.activeUser?.screenName {
+            viewController?.performSegue(withIdentifier: "showUserProfile", sender: tweet.screenName)
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -105,5 +115,7 @@ class TweetTableViewCell: UITableViewCell {
     @IBAction func replyTo(_ sender: Any) {
         viewController?.performSegue(withIdentifier: "replyToTweet", sender: tweet)
     }
-
+    
+    
+    
 }
