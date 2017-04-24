@@ -73,7 +73,7 @@ class CommonViewController: UIViewController {
                 self.tweetsTableView.reloadData()
             }, nil)
         } else {
-            if let oldestId = tweets?.max(by: {$0.id! < $1.id!})?.id {
+            if let oldestId = tweets?.min(by: {$0.id! < $1.id!})?.id {
                 loadMoreTweetClousure?(oldestId, { (newTweets) in
                     self.tweets?.append(contentsOf: newTweets)
                     self.isMoreDataLoading = false

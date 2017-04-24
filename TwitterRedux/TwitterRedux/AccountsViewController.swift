@@ -46,6 +46,7 @@ class AccountsViewController: UIViewController{
     }
     
     @IBAction func removeUser(_ sender: UIPanGestureRecognizer) {
+        print("Received gesture")
         if sender.state == UIGestureRecognizerState.ended {
             let velocity = sender.velocity(in: view)
             if velocity.x > 0 {
@@ -59,16 +60,6 @@ class AccountsViewController: UIViewController{
         }
     }
     
-    @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
-        print("Receive swipe gesture")
-//        if sender.direction == UISwipeGestureRecognizerDirection.left {
-//            
-////            let cell = sender.view as? AccountTableViewCell
-////            let indexPath = accountsTableView.indexPath(for: cell!)
-////            let user = User.sharedUserGroup.users[(indexPath?.row)!]
-////            User.sharedUserGroup.removeUser(user: user)
-//        }
-    }
 
     /*
     // MARK: - Navigation

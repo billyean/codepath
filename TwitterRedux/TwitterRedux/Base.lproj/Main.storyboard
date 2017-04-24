@@ -260,16 +260,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-cS-Zhv" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="Q4M-nK-Yd7"/>
+                                                        <constraint firstAttribute="width" constant="36" id="Q4M-nK-Yd7"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTt-6D-lTX" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="Su7-6T-Ar8"/>
                                                         <constraint firstAttribute="height" constant="24" id="jsV-rC-a28"/>
@@ -280,7 +280,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-bo-TTD" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="MrE-KK-Peq"/>
                                                         <constraint firstAttribute="height" constant="24" id="WiC-1N-bUD"/>
@@ -291,18 +291,18 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="744-6K-DuZ" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="TX0-8E-fTf"/>
+                                                        <constraint firstAttribute="width" constant="36" id="TX0-8E-fTf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI5-Wx-l19" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="0Ad-8N-Fww"/>
+                                                        <constraint firstAttribute="width" constant="36" id="0Ad-8N-Fww"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -317,14 +317,14 @@
                                                 <constraint firstItem="uGa-9J-XUt" firstAttribute="top" secondItem="hLB-qm-7Tk" secondAttribute="bottom" constant="6" id="K2b-ef-bZh"/>
                                                 <constraint firstItem="hLB-qm-7Tk" firstAttribute="top" secondItem="5gg-a2-6zw" secondAttribute="bottom" constant="6" id="KHD-KM-Nbv"/>
                                                 <constraint firstItem="bEU-cS-Zhv" firstAttribute="centerY" secondItem="uGa-9J-XUt" secondAttribute="centerY" id="KMX-Zb-x2P"/>
-                                                <constraint firstItem="XTt-6D-lTX" firstAttribute="leading" secondItem="744-6K-DuZ" secondAttribute="trailing" constant="50" id="REp-oq-t0Z"/>
+                                                <constraint firstItem="XTt-6D-lTX" firstAttribute="leading" secondItem="744-6K-DuZ" secondAttribute="trailing" constant="40" id="REp-oq-t0Z"/>
                                                 <constraint firstItem="744-6K-DuZ" firstAttribute="leading" secondItem="uGa-9J-XUt" secondAttribute="trailing" constant="4" id="WD9-rk-ofB"/>
                                                 <constraint firstItem="5gg-a2-6zw" firstAttribute="top" secondItem="gkU-im-syv" secondAttribute="top" id="XVb-N5-QCL"/>
                                                 <constraint firstItem="gkU-im-syv" firstAttribute="top" secondItem="WNd-6o-U4L" secondAttribute="top" id="ZMH-8q-nUz"/>
                                                 <constraint firstItem="744-6K-DuZ" firstAttribute="centerY" secondItem="uGa-9J-XUt" secondAttribute="centerY" id="c7J-eo-xwI"/>
                                                 <constraint firstItem="WNd-6o-U4L" firstAttribute="top" secondItem="gaL-LR-Jat" secondAttribute="topMargin" constant="2" id="cdM-qQ-J6E"/>
                                                 <constraint firstItem="Nih-bo-TTD" firstAttribute="centerY" secondItem="uGa-9J-XUt" secondAttribute="centerY" id="dD0-an-MR8"/>
-                                                <constraint firstItem="Nih-bo-TTD" firstAttribute="leading" secondItem="bEU-cS-Zhv" secondAttribute="trailing" constant="50" id="kMa-Y1-zPQ"/>
+                                                <constraint firstItem="Nih-bo-TTD" firstAttribute="leading" secondItem="bEU-cS-Zhv" secondAttribute="trailing" constant="40" id="kMa-Y1-zPQ"/>
                                                 <constraint firstItem="5gg-a2-6zw" firstAttribute="leading" secondItem="gkU-im-syv" secondAttribute="trailing" constant="16" id="kgB-89-a4v"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="uGa-9J-XUt" secondAttribute="bottom" constant="6" id="mGt-jr-oXy"/>
                                                 <constraint firstItem="uGa-9J-XUt" firstAttribute="leading" secondItem="hLB-qm-7Tk" secondAttribute="leading" id="nCz-mA-9rw"/>
@@ -390,16 +390,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y63-Yz-5Cj" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="0US-G3-unA"/>
+                                                        <constraint firstAttribute="width" constant="36" id="0US-G3-unA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRw-rC-Cn0" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="247.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="247.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="jrd-70-xtv"/>
                                                         <constraint firstAttribute="width" constant="24" id="pNq-Ub-h7U"/>
@@ -410,7 +410,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72b-Md-khP" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="247.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="247.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="NwT-EH-rXs"/>
                                                         <constraint firstAttribute="width" constant="24" id="wwM-5s-ChF"/>
@@ -421,9 +421,9 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7j-xs-PYz" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="ZUW-AT-iSq"/>
+                                                        <constraint firstAttribute="width" constant="36" id="ZUW-AT-iSq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -437,9 +437,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHl-QK-6Vh" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="3FQ-VS-okb"/>
+                                                        <constraint firstAttribute="width" constant="36" id="3FQ-VS-okb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -469,14 +469,14 @@
                                                 <constraint firstItem="hia-uH-cUR" firstAttribute="top" secondItem="n9P-Qb-6Vs" secondAttribute="bottom" constant="4" id="Gw2-7U-lAk"/>
                                                 <constraint firstItem="jJT-wj-3ei" firstAttribute="top" secondItem="gwU-cv-4pa" secondAttribute="bottom" constant="6" id="HDu-Nl-Xd4"/>
                                                 <constraint firstItem="n9P-Qb-6Vs" firstAttribute="leading" secondItem="jJT-wj-3ei" secondAttribute="leading" id="LFg-vg-L9W"/>
-                                                <constraint firstItem="zRw-rC-Cn0" firstAttribute="leading" secondItem="s7j-xs-PYz" secondAttribute="trailing" constant="50" id="LNt-hN-mAS"/>
+                                                <constraint firstItem="zRw-rC-Cn0" firstAttribute="leading" secondItem="s7j-xs-PYz" secondAttribute="trailing" constant="40" id="LNt-hN-mAS"/>
                                                 <constraint firstAttribute="trailing" secondItem="jJT-wj-3ei" secondAttribute="trailing" constant="10" id="Lwu-5y-KgD"/>
                                                 <constraint firstItem="hia-uH-cUR" firstAttribute="leading" secondItem="n9P-Qb-6Vs" secondAttribute="leading" id="Slu-8c-Cq9"/>
                                                 <constraint firstItem="n9P-Qb-6Vs" firstAttribute="top" secondItem="jJT-wj-3ei" secondAttribute="bottom" constant="6" id="TLf-Fe-How"/>
                                                 <constraint firstItem="rHl-QK-6Vh" firstAttribute="leading" secondItem="72b-Md-khP" secondAttribute="trailing" constant="4" id="W4z-JS-NfS"/>
                                                 <constraint firstItem="X0T-qy-a71" firstAttribute="top" secondItem="Ogy-Ns-7vQ" secondAttribute="top" id="anm-Ao-RyU"/>
                                                 <constraint firstItem="gwU-cv-4pa" firstAttribute="top" secondItem="X0T-qy-a71" secondAttribute="top" id="dJh-FX-jUf"/>
-                                                <constraint firstItem="72b-Md-khP" firstAttribute="leading" secondItem="y63-Yz-5Cj" secondAttribute="trailing" constant="50" id="moM-YM-inS"/>
+                                                <constraint firstItem="72b-Md-khP" firstAttribute="leading" secondItem="y63-Yz-5Cj" secondAttribute="trailing" constant="40" id="moM-YM-inS"/>
                                                 <constraint firstItem="72b-Md-khP" firstAttribute="centerY" secondItem="hia-uH-cUR" secondAttribute="centerY" id="mwB-oc-jOW"/>
                                                 <constraint firstItem="y63-Yz-5Cj" firstAttribute="centerY" secondItem="hia-uH-cUR" secondAttribute="centerY" id="qj5-h2-iOH"/>
                                                 <constraint firstItem="s7j-xs-PYz" firstAttribute="leading" secondItem="hia-uH-cUR" secondAttribute="trailing" constant="4" id="rv0-MZ-qYK"/>
@@ -548,16 +548,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMz-Ja-zYr" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="sGD-Vv-Wre"/>
+                                                        <constraint firstAttribute="width" constant="36" id="sGD-Vv-Wre"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkf-Wj-NXa" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="EMm-ir-jq0"/>
                                                         <constraint firstAttribute="height" constant="24" id="oDC-tr-Xcb"/>
@@ -568,7 +568,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K35-VR-B3r" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="A6p-BP-BRA"/>
                                                         <constraint firstAttribute="height" constant="24" id="iYR-Yx-62q"/>
@@ -579,18 +579,18 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEK-JH-LPg" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="1Xs-p5-rZQ"/>
+                                                        <constraint firstAttribute="width" constant="36" id="1Xs-p5-rZQ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38m-p2-SIk" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="YIx-cz-CbT"/>
+                                                        <constraint firstAttribute="width" constant="36" id="YIx-cz-CbT"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -611,7 +611,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Bwq-Tt-mfx" firstAttribute="leading" secondItem="qJO-Ph-98F" secondAttribute="leading" id="0hi-1G-KA5"/>
-                                                <constraint firstItem="K35-VR-B3r" firstAttribute="leading" secondItem="GMz-Ja-zYr" secondAttribute="trailing" constant="50" id="1Rv-n9-QPj"/>
+                                                <constraint firstItem="K35-VR-B3r" firstAttribute="leading" secondItem="GMz-Ja-zYr" secondAttribute="trailing" constant="40" id="1Rv-n9-QPj"/>
                                                 <constraint firstItem="W1Z-uc-jTV" firstAttribute="leading" secondItem="Bwq-Tt-mfx" secondAttribute="leading" id="717-v0-t1S"/>
                                                 <constraint firstItem="x1g-sJ-3nh" firstAttribute="top" secondItem="qJO-Ph-98F" secondAttribute="top" id="Cky-1x-CQ0"/>
                                                 <constraint firstItem="wtv-OW-OpU" firstAttribute="leading" secondItem="rXm-u2-uxU" secondAttribute="leadingMargin" constant="12" id="Csl-tc-O4q"/>
@@ -633,7 +633,7 @@
                                                 <constraint firstItem="38m-p2-SIk" firstAttribute="centerY" secondItem="W1Z-uc-jTV" secondAttribute="centerY" id="hi3-8s-x3j"/>
                                                 <constraint firstItem="W1Z-uc-jTV" firstAttribute="top" secondItem="Bwq-Tt-mfx" secondAttribute="bottom" constant="4" id="iva-2b-skN"/>
                                                 <constraint firstItem="Mom-wE-TlY" firstAttribute="leading" secondItem="Kfa-3t-e5v" secondAttribute="trailing" constant="12" id="ktj-sg-1Qh"/>
-                                                <constraint firstItem="kkf-Wj-NXa" firstAttribute="leading" secondItem="pEK-JH-LPg" secondAttribute="trailing" constant="50" id="pw1-XF-8lv"/>
+                                                <constraint firstItem="kkf-Wj-NXa" firstAttribute="leading" secondItem="pEK-JH-LPg" secondAttribute="trailing" constant="40" id="pw1-XF-8lv"/>
                                                 <constraint firstItem="Kfa-3t-e5v" firstAttribute="trailing" secondItem="wtv-OW-OpU" secondAttribute="trailing" id="voG-pc-h6F"/>
                                                 <constraint firstItem="GMz-Ja-zYr" firstAttribute="leading" secondItem="kkf-Wj-NXa" secondAttribute="trailing" constant="4" id="wTt-qA-oUN"/>
                                             </constraints>
@@ -1187,16 +1187,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmO-zh-CB3" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="NYw-wD-mJd"/>
+                                                        <constraint firstAttribute="width" constant="36" id="NYw-wD-mJd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3v-aq-RAK" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="OIo-oE-BaV"/>
                                                         <constraint firstAttribute="width" constant="24" id="wAz-dg-3lx"/>
@@ -1207,7 +1207,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXn-y0-tW3" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="aEc-UH-PZs"/>
                                                         <constraint firstAttribute="height" constant="24" id="ezW-1s-WYm"/>
@@ -1218,18 +1218,18 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdB-ey-tZG" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="Ut5-Yr-AQC"/>
+                                                        <constraint firstAttribute="width" constant="36" id="Ut5-Yr-AQC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owR-wL-Q1L" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="FTk-Cr-RQd"/>
+                                                        <constraint firstAttribute="width" constant="36" id="FTk-Cr-RQd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -1250,11 +1250,11 @@
                                                 <constraint firstItem="Vzv-bl-h6E" firstAttribute="top" secondItem="DjF-X3-wvN" secondAttribute="bottom" constant="6" id="OOR-Vt-MjT"/>
                                                 <constraint firstItem="Vzv-bl-h6E" firstAttribute="leading" secondItem="f1l-4C-DbB" secondAttribute="leading" id="PHr-bb-51F"/>
                                                 <constraint firstItem="sdB-ey-tZG" firstAttribute="centerY" secondItem="aO3-Ir-2jT" secondAttribute="centerY" id="PtO-Pe-UPf"/>
-                                                <constraint firstItem="e3v-aq-RAK" firstAttribute="leading" secondItem="sdB-ey-tZG" secondAttribute="trailing" constant="50" id="RLx-lf-0cb"/>
+                                                <constraint firstItem="e3v-aq-RAK" firstAttribute="leading" secondItem="sdB-ey-tZG" secondAttribute="trailing" constant="40" id="RLx-lf-0cb"/>
                                                 <constraint firstItem="sdB-ey-tZG" firstAttribute="leading" secondItem="aO3-Ir-2jT" secondAttribute="trailing" constant="4" id="eIG-je-OdN"/>
                                                 <constraint firstItem="DjF-X3-wvN" firstAttribute="leading" secondItem="f1l-4C-DbB" secondAttribute="trailing" constant="16" id="enL-RL-3Fm"/>
                                                 <constraint firstItem="yfK-Lj-4pJ" firstAttribute="top" secondItem="ck3-C8-9QP" secondAttribute="topMargin" constant="2" id="h9P-GD-Iqw"/>
-                                                <constraint firstItem="nXn-y0-tW3" firstAttribute="leading" secondItem="PmO-zh-CB3" secondAttribute="trailing" constant="50" id="jCx-fQ-ns3"/>
+                                                <constraint firstItem="nXn-y0-tW3" firstAttribute="leading" secondItem="PmO-zh-CB3" secondAttribute="trailing" constant="40" id="jCx-fQ-ns3"/>
                                                 <constraint firstItem="yfK-Lj-4pJ" firstAttribute="leading" secondItem="ck3-C8-9QP" secondAttribute="leadingMargin" constant="12" id="kBw-ZJ-Tzd"/>
                                                 <constraint firstItem="aO3-Ir-2jT" firstAttribute="top" secondItem="Vzv-bl-h6E" secondAttribute="bottom" constant="6" id="qp1-6h-Rlh"/>
                                                 <constraint firstItem="f1l-4C-DbB" firstAttribute="top" secondItem="yfK-Lj-4pJ" secondAttribute="top" id="rpu-gH-kbe"/>
@@ -1317,16 +1317,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nT-dq-xn4" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="9AT-KS-NfI"/>
+                                                        <constraint firstAttribute="width" constant="36" id="9AT-KS-NfI"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGV-dY-dGb" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="247.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="247.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="xmP-zA-rce"/>
                                                         <constraint firstAttribute="width" constant="24" id="ydT-Wx-Ib1"/>
@@ -1337,7 +1337,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-im-3JK" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="247.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="247.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="LO1-ln-Dxn"/>
                                                         <constraint firstAttribute="width" constant="24" id="lf8-qT-ZAY"/>
@@ -1348,9 +1348,9 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOo-XY-WGP" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="WgE-1o-le0"/>
+                                                        <constraint firstAttribute="width" constant="36" id="WgE-1o-le0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -1364,9 +1364,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RU8-Pw-2mD" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="Unu-xU-jFH"/>
+                                                        <constraint firstAttribute="width" constant="36" id="Unu-xU-jFH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -1398,10 +1398,10 @@
                                                 <constraint firstItem="RF2-Gl-pSv" firstAttribute="leading" secondItem="7dV-qS-fFP" secondAttribute="leading" id="LwV-m9-cmW"/>
                                                 <constraint firstItem="RU8-Pw-2mD" firstAttribute="centerY" secondItem="RF2-Gl-pSv" secondAttribute="centerY" id="NcJ-Hi-rKB"/>
                                                 <constraint firstItem="XeI-im-3JK" firstAttribute="centerY" secondItem="RF2-Gl-pSv" secondAttribute="centerY" id="RhY-EY-t65"/>
-                                                <constraint firstItem="bGV-dY-dGb" firstAttribute="leading" secondItem="HOo-XY-WGP" secondAttribute="trailing" constant="50" id="SI8-0E-1Nx"/>
+                                                <constraint firstItem="bGV-dY-dGb" firstAttribute="leading" secondItem="HOo-XY-WGP" secondAttribute="trailing" constant="40" id="SI8-0E-1Nx"/>
                                                 <constraint firstItem="RU8-Pw-2mD" firstAttribute="leading" secondItem="XeI-im-3JK" secondAttribute="trailing" constant="4" id="SxX-IF-IWv"/>
                                                 <constraint firstItem="3R0-MC-Vhq" firstAttribute="leading" secondItem="1x9-Zd-qk4" secondAttribute="leadingMargin" constant="12" id="bbj-dw-VaM"/>
-                                                <constraint firstItem="XeI-im-3JK" firstAttribute="leading" secondItem="8nT-dq-xn4" secondAttribute="trailing" constant="50" id="iSa-8p-7hE"/>
+                                                <constraint firstItem="XeI-im-3JK" firstAttribute="leading" secondItem="8nT-dq-xn4" secondAttribute="trailing" constant="40" id="iSa-8p-7hE"/>
                                                 <constraint firstItem="2gG-ic-AQ3" firstAttribute="top" secondItem="CgB-es-ZLm" secondAttribute="top" id="kn4-L9-4ju"/>
                                                 <constraint firstItem="RF2-Gl-pSv" firstAttribute="top" secondItem="7dV-qS-fFP" secondAttribute="bottom" constant="4" id="pR2-4o-vH8"/>
                                                 <constraint firstItem="8nT-dq-xn4" firstAttribute="leading" secondItem="bGV-dY-dGb" secondAttribute="trailing" constant="4" id="sJC-Jw-Kl6"/>
@@ -1475,16 +1475,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9d-OJ-Yxi" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="o36-s9-Y5M"/>
+                                                        <constraint firstAttribute="width" constant="36" id="o36-s9-Y5M"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlr-TQ-Riq" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="Gj8-FB-81W"/>
                                                         <constraint firstAttribute="height" constant="24" id="qnl-Gf-FzS"/>
@@ -1495,7 +1495,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQl-da-U9R" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="V5W-oY-Lsa"/>
                                                         <constraint firstAttribute="width" constant="24" id="smP-a9-Nve"/>
@@ -1506,18 +1506,18 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phN-KV-7Td" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="1fz-rl-TUA"/>
+                                                        <constraint firstAttribute="width" constant="36" id="1fz-rl-TUA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwH-cj-ywO" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="iFk-eU-ZbD"/>
+                                                        <constraint firstAttribute="width" constant="36" id="iFk-eU-ZbD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -1553,7 +1553,7 @@
                                                 <constraint firstItem="25A-RX-8eP" firstAttribute="leading" secondItem="A9O-Fg-xrl" secondAttribute="trailing" constant="12" id="X2o-kH-B54"/>
                                                 <constraint firstItem="2hV-fS-v2r" firstAttribute="leading" secondItem="oEu-9q-vKM" secondAttribute="leading" id="bHY-KN-2Dn"/>
                                                 <constraint firstItem="YBk-JH-HLf" firstAttribute="top" secondItem="2hV-fS-v2r" secondAttribute="bottom" constant="4" id="g87-Wg-N1J"/>
-                                                <constraint firstItem="Vlr-TQ-Riq" firstAttribute="leading" secondItem="phN-KV-7Td" secondAttribute="trailing" constant="50" id="gLK-Ee-x90"/>
+                                                <constraint firstItem="Vlr-TQ-Riq" firstAttribute="leading" secondItem="phN-KV-7Td" secondAttribute="trailing" constant="40" id="gLK-Ee-x90"/>
                                                 <constraint firstAttribute="trailing" secondItem="2hV-fS-v2r" secondAttribute="trailing" constant="10" id="iV5-yh-E4i"/>
                                                 <constraint firstItem="oEu-9q-vKM" firstAttribute="top" secondItem="Ctz-2E-Z8r" secondAttribute="top" id="jrO-Ad-fG0"/>
                                                 <constraint firstItem="phN-KV-7Td" firstAttribute="leading" secondItem="YBk-JH-HLf" secondAttribute="trailing" constant="4" id="kEv-6f-54r"/>
@@ -1562,7 +1562,7 @@
                                                 <constraint firstItem="Ctz-2E-Z8r" firstAttribute="leading" secondItem="jgy-Op-dsD" secondAttribute="leadingMargin" constant="12" id="u71-23-fCs"/>
                                                 <constraint firstItem="S7W-jQ-bvK" firstAttribute="top" secondItem="oEu-9q-vKM" secondAttribute="top" id="vPY-qD-ARc"/>
                                                 <constraint firstItem="YBk-JH-HLf" firstAttribute="leading" secondItem="2hV-fS-v2r" secondAttribute="leading" id="ymI-X4-AHm"/>
-                                                <constraint firstItem="lQl-da-U9R" firstAttribute="leading" secondItem="Q9d-OJ-Yxi" secondAttribute="trailing" constant="50" id="zfS-9N-KXu"/>
+                                                <constraint firstItem="lQl-da-U9R" firstAttribute="leading" secondItem="Q9d-OJ-Yxi" secondAttribute="trailing" constant="40" id="zfS-9N-KXu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1641,16 +1641,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4y-Pc-1CD" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="243.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="243.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="bMN-Dw-m3W"/>
+                                                        <constraint firstAttribute="width" constant="36" id="bMN-Dw-m3W"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PR-n1-6Ci" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="239.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="239.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="EXb-pC-LSx"/>
                                                         <constraint firstAttribute="height" constant="24" id="iWJ-rG-Oyr"/>
@@ -1661,7 +1661,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-pH-Qa0" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="239.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="239.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="MHg-d2-Pq4"/>
                                                         <constraint firstAttribute="width" constant="24" id="MiJ-rB-ru2"/>
@@ -1672,9 +1672,9 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7R-5x-6LA" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="243.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="243.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="aA6-k7-fI4"/>
+                                                        <constraint firstAttribute="width" constant="36" id="aA6-k7-fI4"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -1688,9 +1688,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-NV-7OS" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="243.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="243.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="gls-W4-GtO"/>
+                                                        <constraint firstAttribute="width" constant="36" id="gls-W4-GtO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -1711,8 +1711,8 @@
                                                 <constraint firstItem="j8F-er-Mxx" firstAttribute="top" secondItem="hbs-ge-8RQ" secondAttribute="bottom" constant="4" id="PV5-I0-f2k"/>
                                                 <constraint firstItem="nso-Ck-J8I" firstAttribute="leading" secondItem="AUu-0p-AiH" secondAttribute="trailing" constant="16" id="T1y-LL-gbs"/>
                                                 <constraint firstItem="v7R-5x-6LA" firstAttribute="leading" secondItem="DfF-lK-QxB" secondAttribute="trailing" constant="4" id="T4u-mD-db3"/>
-                                                <constraint firstItem="2PR-n1-6Ci" firstAttribute="leading" secondItem="v7R-5x-6LA" secondAttribute="trailing" constant="50" id="Tbk-NE-gd3"/>
-                                                <constraint firstItem="OGj-pH-Qa0" firstAttribute="leading" secondItem="S4y-Pc-1CD" secondAttribute="trailing" constant="50" id="V3Z-RC-VxM"/>
+                                                <constraint firstItem="2PR-n1-6Ci" firstAttribute="leading" secondItem="v7R-5x-6LA" secondAttribute="trailing" constant="40" id="Tbk-NE-gd3"/>
+                                                <constraint firstItem="OGj-pH-Qa0" firstAttribute="leading" secondItem="S4y-Pc-1CD" secondAttribute="trailing" constant="40" id="V3Z-RC-VxM"/>
                                                 <constraint firstItem="S4y-Pc-1CD" firstAttribute="centerY" secondItem="DfF-lK-QxB" secondAttribute="centerY" id="bp5-Zw-gEX"/>
                                                 <constraint firstItem="gPl-Ja-XTi" firstAttribute="leading" secondItem="hbs-ge-8RQ" secondAttribute="trailing" constant="12" id="dnL-OZ-sUs"/>
                                                 <constraint firstItem="fd3-NV-7OS" firstAttribute="centerY" secondItem="DfF-lK-QxB" secondAttribute="centerY" id="g4S-fy-rEO"/>
@@ -2113,16 +2113,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrN-hV-fRQ" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="voa-CN-DLc"/>
+                                                        <constraint firstAttribute="width" constant="36" id="voa-CN-DLc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZM-ha-4AG" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="dRK-e1-pT0"/>
                                                         <constraint firstAttribute="height" constant="24" id="zi8-vp-Fv5"/>
@@ -2133,7 +2133,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-2Z-9oa" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="1Qg-eK-HLN"/>
                                                         <constraint firstAttribute="width" constant="24" id="gQW-Zp-uLt"/>
@@ -2144,18 +2144,18 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0R7-DP-RUo" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="LAZ-By-LSC"/>
+                                                        <constraint firstAttribute="width" constant="36" id="LAZ-By-LSC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHw-iX-tD9" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="TKi-ya-p5p"/>
+                                                        <constraint firstAttribute="width" constant="36" id="TKi-ya-p5p"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -2168,8 +2168,8 @@
                                                 <constraint firstItem="DsD-6x-Jqi" firstAttribute="leading" secondItem="Jek-7n-FFs" secondAttribute="trailing" constant="12" id="64J-0M-ZPu"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="cQY-cX-N5y" secondAttribute="bottom" constant="6" id="8AY-rw-M2p"/>
                                                 <constraint firstItem="4Fi-LM-XFv" firstAttribute="top" secondItem="DsD-6x-Jqi" secondAttribute="top" id="IeY-vq-eZl"/>
-                                                <constraint firstItem="1cE-2Z-9oa" firstAttribute="leading" secondItem="CrN-hV-fRQ" secondAttribute="trailing" constant="50" id="Lzt-ww-37F"/>
-                                                <constraint firstItem="EZM-ha-4AG" firstAttribute="leading" secondItem="0R7-DP-RUo" secondAttribute="trailing" constant="50" id="Sx8-yo-tbD"/>
+                                                <constraint firstItem="1cE-2Z-9oa" firstAttribute="leading" secondItem="CrN-hV-fRQ" secondAttribute="trailing" constant="40" id="Lzt-ww-37F"/>
+                                                <constraint firstItem="EZM-ha-4AG" firstAttribute="leading" secondItem="0R7-DP-RUo" secondAttribute="trailing" constant="40" id="Sx8-yo-tbD"/>
                                                 <constraint firstItem="EZM-ha-4AG" firstAttribute="centerY" secondItem="cQY-cX-N5y" secondAttribute="centerY" id="SzW-cI-fHJ"/>
                                                 <constraint firstItem="BHw-iX-tD9" firstAttribute="leading" secondItem="1cE-2Z-9oa" secondAttribute="trailing" constant="4" id="UMX-b1-Hmt"/>
                                                 <constraint firstItem="Jek-7n-FFs" firstAttribute="leading" secondItem="Zee-hM-i91" secondAttribute="leadingMargin" constant="12" id="blC-N4-bUZ"/>
@@ -2243,16 +2243,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brN-Lm-oKw" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="dZH-NY-7Dk"/>
+                                                        <constraint firstAttribute="width" constant="36" id="dZH-NY-7Dk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtY-8e-Jio" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="247.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="247.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="K41-M8-7dF"/>
                                                         <constraint firstAttribute="height" constant="24" id="Kd5-Wb-gNd"/>
@@ -2263,7 +2263,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ii-do-4Mj" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="247.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="247.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="Pzi-pN-rPf"/>
                                                         <constraint firstAttribute="width" constant="24" id="jCw-QJ-s0s"/>
@@ -2274,9 +2274,9 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMf-Fa-nfg" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="IwE-49-qcd"/>
+                                                        <constraint firstAttribute="width" constant="36" id="IwE-49-qcd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -2290,9 +2290,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEC-7c-fof" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="251.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="251.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="Ytb-UN-RAs"/>
+                                                        <constraint firstAttribute="width" constant="36" id="Ytb-UN-RAs"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -2312,7 +2312,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Oez-aM-E0m" firstAttribute="top" secondItem="PC1-F3-j4V" secondAttribute="topMargin" constant="2" id="4Rp-Pz-uj0"/>
-                                                <constraint firstItem="ZtY-8e-Jio" firstAttribute="leading" secondItem="FMf-Fa-nfg" secondAttribute="trailing" constant="50" id="8NK-pX-GoX"/>
+                                                <constraint firstItem="ZtY-8e-Jio" firstAttribute="leading" secondItem="FMf-Fa-nfg" secondAttribute="trailing" constant="40" id="8NK-pX-GoX"/>
                                                 <constraint firstItem="CRt-ei-XyQ" firstAttribute="leading" secondItem="ucT-6f-Hzl" secondAttribute="leading" id="9M4-5D-Y07"/>
                                                 <constraint firstItem="3vN-pC-Yte" firstAttribute="top" secondItem="Oez-aM-E0m" secondAttribute="top" id="AKi-Mw-4W5"/>
                                                 <constraint firstItem="JEC-7c-fof" firstAttribute="leading" secondItem="6Ii-do-4Mj" secondAttribute="trailing" constant="4" id="CBi-Hu-osn"/>
@@ -2326,7 +2326,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="CRt-ei-XyQ" secondAttribute="bottom" constant="4" id="Wkw-h6-LGd"/>
                                                 <constraint firstItem="FMf-Fa-nfg" firstAttribute="leading" secondItem="CRt-ei-XyQ" secondAttribute="trailing" constant="4" id="YiH-Sk-oiX"/>
                                                 <constraint firstItem="brN-Lm-oKw" firstAttribute="leading" secondItem="ZtY-8e-Jio" secondAttribute="trailing" constant="4" id="ZDM-jI-qex"/>
-                                                <constraint firstItem="6Ii-do-4Mj" firstAttribute="leading" secondItem="brN-Lm-oKw" secondAttribute="trailing" constant="50" id="gB8-4h-wq1"/>
+                                                <constraint firstItem="6Ii-do-4Mj" firstAttribute="leading" secondItem="brN-Lm-oKw" secondAttribute="trailing" constant="40" id="gB8-4h-wq1"/>
                                                 <constraint firstItem="Oez-aM-E0m" firstAttribute="leading" secondItem="PC1-F3-j4V" secondAttribute="leadingMargin" constant="12" id="hdI-Cd-drr"/>
                                                 <constraint firstItem="ZtY-8e-Jio" firstAttribute="centerY" secondItem="CRt-ei-XyQ" secondAttribute="centerY" id="j0F-hy-qO1"/>
                                                 <constraint firstItem="g8G-Qg-gTC" firstAttribute="top" secondItem="DdM-1U-DJj" secondAttribute="bottom" constant="6" id="kV8-tf-NXY"/>
@@ -2401,16 +2401,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK5-1C-FJA" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="xFi-L1-pNl"/>
+                                                        <constraint firstAttribute="width" constant="36" id="xFi-L1-pNl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUq-kt-LNx" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="BJT-ee-V8r"/>
                                                         <constraint firstAttribute="width" constant="24" id="rJb-8J-mSh"/>
@@ -2421,7 +2421,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wg-9f-7iV" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="237.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="237.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="AeA-d5-VWN"/>
                                                         <constraint firstAttribute="width" constant="24" id="URH-gb-yWd"/>
@@ -2432,18 +2432,18 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNp-3d-Nza" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="N2c-ln-xTe"/>
+                                                        <constraint firstAttribute="width" constant="36" id="N2c-ln-xTe"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3F-8g-gG1" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="241.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="241.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="VEi-5t-x0p"/>
+                                                        <constraint firstAttribute="width" constant="36" id="VEi-5t-x0p"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -2471,7 +2471,7 @@
                                                 <constraint firstItem="35l-e2-jTT" firstAttribute="top" secondItem="rmJ-l1-0no" secondAttribute="bottom" constant="6" id="GM4-nD-OL8"/>
                                                 <constraint firstItem="i3F-8g-gG1" firstAttribute="leading" secondItem="8Wg-9f-7iV" secondAttribute="trailing" constant="4" id="KCe-sB-l2a"/>
                                                 <constraint firstItem="Ga5-ka-jGI" firstAttribute="leading" secondItem="35l-e2-jTT" secondAttribute="leading" id="Pbn-gR-i8I"/>
-                                                <constraint firstItem="8Wg-9f-7iV" firstAttribute="leading" secondItem="PK5-1C-FJA" secondAttribute="trailing" constant="50" id="Q2N-58-WpK"/>
+                                                <constraint firstItem="8Wg-9f-7iV" firstAttribute="leading" secondItem="PK5-1C-FJA" secondAttribute="trailing" constant="40" id="Q2N-58-WpK"/>
                                                 <constraint firstItem="i3F-8g-gG1" firstAttribute="centerY" secondItem="Ga5-ka-jGI" secondAttribute="centerY" id="QPV-Ce-h5d"/>
                                                 <constraint firstItem="OUq-kt-LNx" firstAttribute="centerY" secondItem="Ga5-ka-jGI" secondAttribute="centerY" id="YDY-dZ-urA"/>
                                                 <constraint firstItem="35l-e2-jTT" firstAttribute="leading" secondItem="bl1-zA-l43" secondAttribute="leading" id="ZPx-zJ-gy4"/>
@@ -2483,7 +2483,7 @@
                                                 <constraint firstItem="Ga5-ka-jGI" firstAttribute="top" secondItem="35l-e2-jTT" secondAttribute="bottom" constant="4" id="hEo-l5-nx4"/>
                                                 <constraint firstItem="Hj2-ti-nRL" firstAttribute="top" secondItem="POh-7l-ha9" secondAttribute="bottom" constant="4" id="lpc-6s-M10"/>
                                                 <constraint firstItem="bl1-zA-l43" firstAttribute="top" secondItem="Hj2-ti-nRL" secondAttribute="top" id="mUj-3n-ctc"/>
-                                                <constraint firstItem="OUq-kt-LNx" firstAttribute="leading" secondItem="KNp-3d-Nza" secondAttribute="trailing" constant="50" id="o2s-gz-1IA"/>
+                                                <constraint firstItem="OUq-kt-LNx" firstAttribute="leading" secondItem="KNp-3d-Nza" secondAttribute="trailing" constant="40" id="o2s-gz-1IA"/>
                                                 <constraint firstItem="45c-wx-3kC" firstAttribute="centerY" secondItem="POh-7l-ha9" secondAttribute="centerY" id="s9m-sS-HJt"/>
                                                 <constraint firstItem="8Wg-9f-7iV" firstAttribute="centerY" secondItem="Ga5-ka-jGI" secondAttribute="centerY" id="tPH-rS-Wow"/>
                                                 <constraint firstItem="bl1-zA-l43" firstAttribute="leading" secondItem="Hj2-ti-nRL" secondAttribute="trailing" constant="12" id="ugx-8W-uOK"/>
@@ -2567,16 +2567,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXJ-1D-92a" userLabel="Retweet Count Label">
-                                                    <rect key="frame" x="210" y="243.5" width="24" height="16"/>
+                                                    <rect key="frame" x="212" y="243.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="1BH-yL-CJy"/>
+                                                        <constraint firstAttribute="width" constant="36" id="1BH-yL-CJy"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYX-MV-o71" userLabel="Retweet Button">
-                                                    <rect key="frame" x="182" y="239.5" width="24" height="24"/>
+                                                    <rect key="frame" x="184" y="239.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="DRM-HM-br4"/>
                                                         <constraint firstAttribute="height" constant="24" id="KtU-OM-MUa"/>
@@ -2587,7 +2587,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMV-Sp-6mx" userLabel="Favorite Button">
-                                                    <rect key="frame" x="284" y="239.5" width="24" height="24"/>
+                                                    <rect key="frame" x="288" y="239.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="9Qs-fC-87X"/>
                                                         <constraint firstAttribute="height" constant="24" id="cUf-c8-Ymo"/>
@@ -2598,9 +2598,9 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T35-Hf-Jam" userLabel="Reply Count Label">
-                                                    <rect key="frame" x="108" y="243.5" width="24" height="16"/>
+                                                    <rect key="frame" x="108" y="243.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="9Nv-s5-Nk7"/>
+                                                        <constraint firstAttribute="width" constant="36" id="9Nv-s5-Nk7"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -2614,9 +2614,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heU-Mt-nIF" userLabel="Favorite Count Label">
-                                                    <rect key="frame" x="312" y="243.5" width="24" height="16"/>
+                                                    <rect key="frame" x="316" y="243.5" width="36" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="Zc7-r8-VwX"/>
+                                                        <constraint firstAttribute="width" constant="36" id="Zc7-r8-VwX"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
@@ -2624,7 +2624,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bYX-MV-o71" firstAttribute="leading" secondItem="T35-Hf-Jam" secondAttribute="trailing" constant="50" id="1nh-Ng-CNz"/>
+                                                <constraint firstItem="bYX-MV-o71" firstAttribute="leading" secondItem="T35-Hf-Jam" secondAttribute="trailing" constant="40" id="1nh-Ng-CNz"/>
                                                 <constraint firstItem="xfY-dQ-tRG" firstAttribute="top" secondItem="rXu-13-Cpt" secondAttribute="bottom" constant="6" id="3AT-ny-WPB"/>
                                                 <constraint firstItem="rXu-13-Cpt" firstAttribute="leading" secondItem="6ei-wX-owA" secondAttribute="leading" id="5Wf-mp-DId"/>
                                                 <constraint firstItem="sMV-Sp-6mx" firstAttribute="centerY" secondItem="kkG-uX-KOp" secondAttribute="centerY" id="7yp-cR-vJt"/>
@@ -2651,7 +2651,7 @@
                                                 <constraint firstItem="gt2-Qq-JYy" firstAttribute="leading" secondItem="VxN-eE-qlr" secondAttribute="trailing" constant="12" id="vSg-58-Nxl"/>
                                                 <constraint firstItem="4HM-SF-LhE" firstAttribute="top" secondItem="6ei-wX-owA" secondAttribute="top" id="wnw-bo-iGy"/>
                                                 <constraint firstItem="n82-zM-6nh" firstAttribute="top" secondItem="VxN-eE-qlr" secondAttribute="bottom" constant="4" id="yts-GC-POl"/>
-                                                <constraint firstItem="sMV-Sp-6mx" firstAttribute="leading" secondItem="cXJ-1D-92a" secondAttribute="trailing" constant="50" id="zLm-Wa-sdz"/>
+                                                <constraint firstItem="sMV-Sp-6mx" firstAttribute="leading" secondItem="cXJ-1D-92a" secondAttribute="trailing" constant="40" id="zLm-Wa-sdz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

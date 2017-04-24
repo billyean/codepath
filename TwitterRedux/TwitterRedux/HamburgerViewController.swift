@@ -58,6 +58,7 @@ class HamburgerViewController: UIViewController {
     }
     
     @IBAction func onPanGesture(_ sender: UIPanGestureRecognizer) {
+        print("Receive pan gesture")
         let translation = sender.translation(in: view)
         let velocity = sender.velocity(in: view)
         

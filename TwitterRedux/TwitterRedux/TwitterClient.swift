@@ -148,8 +148,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     func fetchMoreTimeline(oldestId: Int, whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
         var parameters = [String:String]()
         parameters["exclude_replies"] = "0"
-        parameters["since_id"] = "\(oldestId)"
-        print("since_id = \(oldestId)")
+        parameters["max_id"] = "\(oldestId - 1)"
         self.get(homeTimelineURL, parameters: parameters, success: { (task, response) in
             if let tweetDictionaries = response as? [NSDictionary] {
                 let  tweets = tweetDictionaries.map{ return Tweet(dictionary:$0)}
@@ -182,8 +181,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         var parameters = [String:String]()
         parameters["exclude_replies"] = "0"
         parameters["user_id"] = User.sharedUserGroup.activeUser?.id
-        parameters["since_id"] = "\(oldestId)"
-        print("since_id = \(oldestId)")
+        parameters["max_id"] = "\(oldestId - 1)"
         self.get(userTimelineURL, parameters: parameters, success: { (task, response) in
             if let tweetDictionaries = response as? [NSDictionary] {
                 let  tweets = tweetDictionaries.map{ return Tweet(dictionary:$0)}
@@ -213,8 +211,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     func fetchMoreMentionsTimeline(oldestId: Int, whenSucceeded succeededAction: @escaping ([Tweet]) -> Void, whenFailed failedAction: ((String) -> Void)?) {
         var parameters = [String:String]()
         parameters["exclude_replies"] = "0"
-        parameters["since_id"] = "\(oldestId)"
-        print("since_id = \(oldestId)")
+        parameters["max_id"] = "\(oldestId - 1)"
         self.get(mentionsTimelineURL, parameters: parameters, success: { (task, response) in
             if let tweetDictionaries = response as? [NSDictionary] {
                 let  tweets = tweetDictionaries.map{ return Tweet(dictionary:$0)}
