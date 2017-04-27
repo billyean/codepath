@@ -20,7 +20,6 @@ class MentionsViewController: CommonViewController {
         loadTweetClousure = TwitterClient.sharedInstance.fetchMentionsTimeline
         loadMoreTweetClousure = TwitterClient.sharedInstance.fetchMoreMentionsTimeline
     }
-    
 
     /*
     // MARK: - Navigation

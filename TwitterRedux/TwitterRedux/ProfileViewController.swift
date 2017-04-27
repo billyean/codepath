@@ -24,7 +24,7 @@ class ProfileViewController: CommonViewController {
     var savedImage: UIImage?
     
     @IBOutlet weak var topLayoutConstraint: NSLayoutConstraint!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -20,6 +20,7 @@ class User: NSObject {
     var savedDictionary: NSDictionary
     
     init(dictionay: NSDictionary) {
+        print(dictionay)
         name = dictionay["name"] as? String
         screenName = dictionay["screen_name"] as? String
         

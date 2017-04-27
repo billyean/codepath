@@ -23,6 +23,8 @@ class CommonViewController: UIViewController {
     var isMoreDataLoading = false
     
     var loadingMoreView: InfiniteScrollActivityView?
+
+    var mainMenuController: MainMenuViewController?
     
     var loadTweetClousure: ((@escaping ([Tweet]) -> Void, ((String) -> Void)?) -> ())?
     
@@ -123,6 +125,10 @@ class CommonViewController: UIViewController {
             let target = segue.destination as? UserProfileViewController
             target?.screenName = sender as? String
         }
+    }
+    
+    
+    @IBAction func bringAccounts(_ sender: UILongPressGestureRecognizer) {
     }
 
 }

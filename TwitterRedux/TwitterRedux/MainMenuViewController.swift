@@ -88,7 +88,14 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         cell?.selectionStyle = .default
     }
     
-
+    func moveToAccountMenu() {
+        UIView.animate(withDuration: 0.3) { 
+            let rows = self.menusTableView.numberOfRows(inSection: 0)
+            let indexPath = IndexPath(row: rows - 1, section: 0)
+            self.menusTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+        }
+ 
+    }
     /*
     // MARK: - Navigation
 

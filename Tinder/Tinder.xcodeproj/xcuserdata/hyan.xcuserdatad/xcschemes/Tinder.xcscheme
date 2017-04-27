@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82F0DB9A1EA8512400379044"
-               BuildableName = "Canvas.app"
-               BlueprintName = "Canvas"
-               ReferencedContainer = "container:Canvas.xcodeproj">
+               BlueprintIdentifier = "8203A41C1EB18D41001D564A"
+               BuildableName = "Tinder.app"
+               BlueprintName = "Tinder"
+               ReferencedContainer = "container:Tinder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82F0DB9A1EA8512400379044"
-            BuildableName = "Canvas.app"
-            BlueprintName = "Canvas"
-            ReferencedContainer = "container:Canvas.xcodeproj">
+            BlueprintIdentifier = "8203A41C1EB18D41001D564A"
+            BuildableName = "Tinder.app"
+            BlueprintName = "Tinder"
+            ReferencedContainer = "container:Tinder.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82F0DB9A1EA8512400379044"
-            BuildableName = "Canvas.app"
-            BlueprintName = "Canvas"
-            ReferencedContainer = "container:Canvas.xcodeproj">
+            BlueprintIdentifier = "8203A41C1EB18D41001D564A"
+            BuildableName = "Tinder.app"
+            BlueprintName = "Tinder"
+            ReferencedContainer = "container:Tinder.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82F0DB9A1EA8512400379044"
-            BuildableName = "Canvas.app"
-            BlueprintName = "Canvas"
-            ReferencedContainer = "container:Canvas.xcodeproj">
+            BlueprintIdentifier = "8203A41C1EB18D41001D564A"
+            BuildableName = "Tinder.app"
+            BlueprintName = "Tinder"
+            ReferencedContainer = "container:Tinder.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

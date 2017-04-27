@@ -56,7 +56,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     override private init(baseURL url: URL?, sessionConfiguration configuration: URLSessionConfiguration?) {
-        super.init(baseURL: url, sessionConfiguration: configuration)
+        super.init(baseURL: url, sessionConfiguration: URLSessionConfiguration.ephemeral)
     }
     
     required init?(coder aDecoder: NSCoder) {

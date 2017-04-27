@@ -842,12 +842,18 @@
                     <connections>
                         <outlet property="newTweetBarButtonItem" destination="1wp-CL-lyh" id="Wv5-1I-sS1"/>
                         <outlet property="signBarButtonItem" destination="WRz-FA-4Uj" id="RMh-YJ-xcb"/>
+                        <outlet property="topLayoutConstraint" destination="FXM-ND-Fp4" id="IyY-1s-Utw"/>
                         <outlet property="tweetsTableView" destination="BP9-F3-4D0" id="Jk6-8I-d6a"/>
                         <segue destination="fOI-Y6-pul" kind="modal" identifier="replyToTweet" id="KJ3-zF-5ed"/>
                         <segue destination="7LS-ww-rFg" kind="push" identifier="showUserProfile" id="xUb-D5-Til"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEs-hu-He6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fBW-AB-xh3">
+                    <connections>
+                        <action selector="bringAccounts:" destination="ao2-cY-cac" id="7dn-6A-gbG"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1830.5" y="784.5"/>
         </scene>
@@ -1776,6 +1782,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0w-CD-1UP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="W5T-8i-PAo">
+                    <connections>
+                        <action selector="bringAccounts:" destination="Yue-yr-Kcj" id="KHa-Hc-x8U"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2417.5" y="1600.5"/>
         </scene>
@@ -1784,7 +1795,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MentionsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="S1D-2f-5uB" userLabel="Mentions Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uq5-kg-jrE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uq5-kg-jrE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2359,7 +2370,7 @@
                                         <rect key="frame" x="0.0" y="580" width="375" height="276"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pqf-2x-ama" id="8SK-5J-wbs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet.png" translatesAutoresizingMaskIntoConstraints="NO" id="POh-7l-ha9" userLabel="Retweet Image View">
@@ -2706,6 +2717,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4H-TJ-vij" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="EQ2-YC-BfZ">
+                    <connections>
+                        <action selector="bringAccounts:" destination="tiC-iV-V6b" id="JAj-2J-IYv"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2929.5" y="2334.5"/>
         </scene>
@@ -2714,7 +2730,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TimelinesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="WBN-8a-IAw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="klM-NO-JtB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="klM-NO-JtB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
